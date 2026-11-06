@@ -65,7 +65,14 @@ class FakeUpstream:
                     self._json(400, {"error": {"message": "The requested model is not supported.",
                                                "code": "model_not_supported"}})
                     return
-                if body["messages"][-1]["role"] == "assistant" and model not in PREFILL_OK:
+                last_role = body["messages"][-1]["role"]
+                if self.path.startswith("/v1/messages"):
+                    # copilot-api maps every non-user Anthropic message (including
+                    # role "system") to an OpenAI assistant turn (copilot-api#272).
+                    ends_on_assistant = last_role != "user"
+                else:
+                    ends_on_assistant = last_role == "assistant"
+                if ends_on_assistant and model not in PREFILL_OK:
                     self._json(400, {"error": {"message": PREFILL_ERROR, "code": "invalid_request_body"}})
                     return
                 if body.get("stream"):

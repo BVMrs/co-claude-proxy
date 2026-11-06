@@ -15,6 +15,14 @@ Two modes:
 Works on both the Anthropic Messages shape (``/v1/messages``) and the OpenAI
 Chat Completions shape (``/v1/chat/completions``); both use a ``messages`` list
 with ``role`` and ``content`` (string or list of blocks).
+
+Anthropic shape only: ``role: "system"`` entries inside ``messages`` are moved
+into the top-level ``system`` field first. Claude Code 2.1.x sends its
+environment block as a trailing ``role: "system"`` message, and copilot-api
+translates every non-user message to an OpenAI ``assistant`` turn
+(ericc-ch/copilot-api#272). Left alone, that turns even a plain "hello" into a
+request that ends on an assistant turn, and Copilot answers with the prefill
+400.
 """
 
 from __future__ import annotations
@@ -59,6 +67,7 @@ class Result:
     original_model: str | None = None
     action: str = "none"  # none | stripped | hinted
     removed: int = 0
+    system_folded: int = 0  # role:"system" messages moved into the top-level system field
 
 
 def _text_of(content) -> str:
@@ -89,8 +98,50 @@ def _append_text(message: dict, text: str) -> None:
         message["content"] = [{"type": "text", "text": text}]
 
 
-def rewrite(body: dict, policy: Policy) -> Result:
-    """Return a rewritten copy of ``body``. Never mutates the input."""
+def _system_blocks(content) -> list[dict]:
+    """Text blocks of a system message's content, keeping cache_control."""
+    if isinstance(content, str):
+        return [{"type": "text", "text": content}] if content else []
+    blocks = []
+    for block in content or ():
+        if isinstance(block, dict) and block.get("type") == "text":
+            blocks.append(block)
+        elif isinstance(block, str) and block:
+            blocks.append({"type": "text", "text": block})
+    return blocks
+
+
+def _fold_system_messages(body: dict) -> int:
+    """Move role:"system" entries of ``messages`` into the top-level ``system`` field.
+
+    Mutates ``body`` (callers pass a copy). Returns how many messages were moved.
+    """
+    messages = body["messages"]
+    moved = [m for m in messages if isinstance(m, dict) and m.get("role") == "system"]
+    if not moved:
+        return 0
+    messages[:] = [m for m in messages if not (isinstance(m, dict) and m.get("role") == "system")]
+
+    system = body.get("system")
+    if isinstance(system, str):
+        blocks = [{"type": "text", "text": system}] if system else []
+    elif isinstance(system, list):
+        blocks = list(system)
+    else:
+        blocks = []
+    for m in moved:
+        blocks.extend(_system_blocks(m.get("content")))
+    if blocks:
+        body["system"] = blocks
+    return len(moved)
+
+
+def rewrite(body: dict, policy: Policy, anthropic: bool = False) -> Result:
+    """Return a rewritten copy of ``body``. Never mutates the input.
+
+    ``anthropic`` marks the Anthropic Messages shape, where ``role: "system"``
+    is not a valid message role and is folded into the ``system`` field.
+    """
     if not isinstance(body, dict):
         return Result(body=body, model=None, last_role=None)
 
@@ -106,12 +157,18 @@ def rewrite(body: dict, policy: Policy) -> Result:
         return Result(out, model, None, original_model)
 
     last_role = messages[-1].get("role") if isinstance(messages[-1], dict) else None
-    if (
-        policy.mode == "off"
-        or last_role != "assistant"
-        or policy.accepts_prefill(model)
-    ):
+    if policy.mode == "off":
         return Result(out, model, last_role, original_model)
+
+    # Done for every model, including ones that accept prefill: otherwise the
+    # system text reaches the model as if the assistant had said it.
+    folded = _fold_system_messages(out) if anthropic else 0
+    if not messages:
+        return Result(out, model, last_role, original_model, system_folded=folded)
+
+    effective_role = messages[-1].get("role") if isinstance(messages[-1], dict) else None
+    if effective_role != "assistant" or policy.accepts_prefill(model):
+        return Result(out, model, last_role, original_model, system_folded=folded)
 
     # Collect the run of trailing assistant messages (normally one).
     cut = len(messages)
@@ -120,7 +177,7 @@ def rewrite(body: dict, policy: Policy) -> Result:
     if cut == 0:
         # Nothing but assistant messages: removing them would leave an empty
         # conversation, which is a worse error. Pass through unchanged.
-        return Result(out, model, last_role, original_model)
+        return Result(out, model, last_role, original_model, system_folded=folded)
 
     removed = messages[cut:]
     del messages[cut:]
@@ -138,4 +195,4 @@ def rewrite(body: dict, policy: Policy) -> Result:
                 messages.append({"role": "user", "content": HINT_TEMPLATE.format(prefill=prefill)})
             action = "hinted"
 
-    return Result(out, model, last_role, original_model, action, len(removed))
+    return Result(out, model, last_role, original_model, action, len(removed), folded)

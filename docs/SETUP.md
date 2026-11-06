@@ -80,6 +80,18 @@ INFO /v1/messages model=claude-sonnet-5.5 last_role=assistant stream=True action
 
 Upstream errors (4xx/5xx) are logged with the first 500 bytes of the response body.
 
+**Trailing `role: "system"` messages.** Claude Code 2.1.x sends its environment
+block as a `role: "system"` entry at the end of `messages`. copilot-api translates
+every non-user message into an assistant turn
+([copilot-api#272](https://github.com/ericc-ch/copilot-api/issues/272)), so without
+the shim even a plain "hello" fails with the prefill 400. For `/v1/messages` the
+shim moves these entries into the top-level `system` field, for every model, and
+logs `system_folded=N`:
+
+```
+INFO /v1/messages model=claude-opus-5.5 last_role=system stream=True action=none system_folded=1
+```
+
 **Strip vs hint.** `strip` is the safest change: the request becomes the conversation
 up to the last user turn. The cost is that the reply no longer starts from the
 prefill. If a helper call prefilled `{` to force JSON, the model may now reply with
@@ -126,6 +138,7 @@ instead of the proxy.
 
 | symptom | cause / fix |
 |---|---|
+| `This model does not support assistant message prefill` on a plain "hello" | Shim older than the `system_folded` fix: update it. Claude Code ends the request with a `role: "system"` message, which copilot-api turns into an assistant turn. |
 | `This model does not support assistant message prefill` still appears | Claude Code isn't going through the shim (check `ANTHROPIC_BASE_URL` and `/status`). Or the model matches a `--prefill-ok` glob but rejects prefill: re-run the probe. |
 | `model_not_supported` | The ID isn't valid for this account. Use an ID from `probe --list`, or add `--map`. The shim log shows the exact ID Claude Code sent. |
 | `502 ... upstream unreachable` from the shim | copilot-api isn't running on `--upstream`. |
