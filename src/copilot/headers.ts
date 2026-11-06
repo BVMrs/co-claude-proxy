@@ -1,5 +1,7 @@
 import { randomUUID } from "node:crypto";
 
+import { checkConfiguredUrl } from "../security/upstream.ts";
+
 // The Copilot API only serves clients that identify as a Copilot editor
 // integration. These match what VS Code Copilot Chat sends (and what
 // ericc-ch/copilot-api uses). Both can be overridden if GitHub starts
@@ -10,8 +12,16 @@ const API_VERSION = "2025-04-01";
 
 export const GITHUB_CLIENT_ID = "Iv1.b507a08c87ecfe98";
 export const GITHUB_SCOPES = "read:user";
-export const GITHUB_BASE_URL = process.env.COB_GITHUB_BASE_URL ?? "https://github.com";
-export const GITHUB_API_URL = process.env.COB_GITHUB_API_URL ?? "https://api.github.com";
+
+/** github.com, or COB_GITHUB_BASE_URL (https, or http to localhost for tests). Read per call. */
+export function githubBaseUrl(env: NodeJS.ProcessEnv = process.env): string {
+  return env.COB_GITHUB_BASE_URL ? checkConfiguredUrl(env.COB_GITHUB_BASE_URL, "COB_GITHUB_BASE_URL").replace(/\/+$/, "") : "https://github.com";
+}
+
+/** api.github.com, or COB_GITHUB_API_URL (https, or http to localhost for tests). Read per call. */
+export function githubApiUrl(env: NodeJS.ProcessEnv = process.env): string {
+  return env.COB_GITHUB_API_URL ? checkConfiguredUrl(env.COB_GITHUB_API_URL, "COB_GITHUB_API_URL").replace(/\/+$/, "") : "https://api.github.com";
+}
 
 const editorHeaders = () => ({
   "editor-version": `vscode/${VSCODE_VERSION}`,

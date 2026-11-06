@@ -49,6 +49,8 @@ export class Bridge {
   private lastUpstreamAt = 0;
   private readonly bodies: BodyLog;
   readonly startedAt = Date.now();
+  /** Keep-alive ping interval while streaming (tests shorten it). */
+  pingMs = PING_MS;
 
   constructor(cfg: Config, client: CopilotClient, registry: ModelRegistry) {
     this.cfg = cfg;
@@ -234,7 +236,7 @@ export class Bridge {
       for (const e of events) write(sse(e));
     };
     const raw: string[] = [];
-    const ping = setInterval(() => write(sse({ type: "ping" })), PING_MS);
+    const ping = setInterval(() => write(sse({ type: "ping" })), this.pingMs);
     let failed: string | undefined;
     try {
       emit(tr.start());

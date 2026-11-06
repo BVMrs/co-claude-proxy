@@ -26,7 +26,7 @@ block like this:
 
 ```bash
 export ANTHROPIC_BASE_URL='http://127.0.0.1:4141'
-export ANTHROPIC_AUTH_TOKEN='co-claude-bridge'
+export ANTHROPIC_AUTH_TOKEN='cob_…'   # this install's API key
 export ANTHROPIC_MODEL='claude-opus-5.5'
 export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-5.5'
 export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-5.5'
@@ -38,7 +38,9 @@ claude
 ```
 
 Paste it into another terminal. Every model ID in it has been checked against your
-account. For fish or PowerShell, use `npx co-claude-bridge env --shell fish` (or
+account. `ANTHROPIC_AUTH_TOKEN` is a random key created on first run and saved next to
+your GitHub sign-in; the bridge refuses requests without it, so other programs and web
+pages on your machine can't use your subscription. For fish or PowerShell, use `npx co-claude-bridge env --shell fish` (or
 `powershell`).
 
 ## What it fixes
@@ -78,7 +80,9 @@ Flags win over environment variables, which win over the file.
 | Flag | Default | |
 | --- | --- | --- |
 | `--port` | `4141` | Port to listen on. |
-| `--host` | `127.0.0.1` | Address to bind. Keep it on localhost: the bridge doesn't check the client's API key. |
+| `--host` | `127.0.0.1` | Address to bind. Anything other than localhost also needs `--allow-remote`. |
+| `--allow-remote` | off | Allow a non-localhost `--host`. Traffic is plain HTTP, so only use it on a network you trust. |
+| `--api-key <key>` | random, saved | Key clients must send (`x-api-key` or `Authorization: Bearer`). Prefer `COB_API_KEY`. |
 | `--account-type` | `individual` | `business` or `enterprise` for those Copilot plans. |
 | `--model` | newest Opus | Main model slot. |
 | `--small-model` | `claude-haiku-4.5` | Helper slot, used for titles, summaries and haiku requests. |
@@ -86,9 +90,9 @@ Flags win over environment variables, which win over the file.
 | `--alias FROM=TO` | | Map any model ID to a Copilot ID. Repeatable. The config file key is `modelAliases`. |
 | `--strict-models` | off | Return an error for an unknown ID instead of using the family slot. |
 | `-v`, `-vv` | | One line per request. `-vv` adds debug output. |
-| `--log-bodies <dir>` | | Write each request, translated request and upstream response to numbered files, so a failing request can be replayed. Tokens are never written. |
+| `--log-bodies <dir>` | | Write each request, translated request and upstream response to numbered files, so a failing request can be replayed. Tokens are never written, and the files are readable only by you. |
 | `--rate-limit <s>` | | Minimum gap between upstream calls. Adding `--wait` queues requests instead of returning 429. |
-| `--github-token <t>` | | Use this GitHub OAuth token instead of the saved one. |
+| `--github-token <t>` | | Use this GitHub OAuth token instead of the saved one. Prefer `COB_GITHUB_TOKEN`: flags are visible to other programs. |
 
 ## Verbose log
 
@@ -130,7 +134,8 @@ src/
   copilot/    Copilot headers, HTTP client with retries, SSE reader, model cache
   pipeline/   resolve-model, repair (system fold + prefill), prefix-strip,
               to-openai, from-openai, stream, count-tokens, errors
-  server/     HTTP routing, the bridge itself, body logging
+  security/   which hosts may receive a token
+  server/     HTTP routing, access control (guard.ts), the bridge itself, body logging
   commands/   start, auth, models, env, doctor
 ```
 
@@ -141,18 +146,28 @@ GitHub device flow and Copilot headers) and
 [supastishn/claude-code-proxy](https://github.com/supastishn/claude-code-proxy) (mapping model
 families to slots). No code is shared with either.
 
+## Security
+
+See [SECURITY.md](SECURITY.md) for what the bridge protects, how releases are built,
+and how to report a problem.
+
 ## Development
 
 ```bash
-npm install
-npm test            # unit + end-to-end tests against a mock Copilot server (Node 22.18+)
+npm ci              # install scripts are off (.npmrc); dev dependencies only
+npm test            # unit, end-to-end, CLI and policy tests (Node 22.18+)
+npm run coverage    # the same, failing below 99% lines / 92% branches / 97% functions
 npm run typecheck
 npm run build       # dist/, runs on Node 20+
+npm run check:pack  # after build: what `npm publish` would upload, and nothing else
 node src/cli.ts -v  # run from source
 ```
+
+`test/helpers/mock-github.ts` fakes the GitHub sign-in and token exchange, so the CLI
+tests run every command as a child process without touching your own sign-in.
 
 `test/helpers/mock-copilot.ts` copies the Copilot behaviour that matters here: model
 IDs, `model_not_supported`, the prefill 400 for Claude 4.6+ models, bearer-token expiry,
 and streaming with a trailing usage chunk. To check Claude Code end to end without a
 Copilot account, point the bridge at that mock with
-`--copilot-token test-token --copilot-base-url <mock url>`.
+`COB_COPILOT_TOKEN=test-token --copilot-base-url <mock url>`.

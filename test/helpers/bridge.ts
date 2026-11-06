@@ -10,6 +10,8 @@ import { createServer } from "../../src/server/http.ts";
 import type { MockCopilot } from "./mock-copilot.ts";
 
 export const logLines: string[] = [];
+export const KEY = "cob_test-key-0123456789abcdef";
+export const authHeaders = { "x-api-key": KEY };
 setSink((l) => logLines.push(l.replace(/\x1b\[[0-9;]*m/g, "")));
 
 export interface Running {
@@ -24,12 +26,12 @@ export async function startBridge(mock: MockCopilot, args: string[] = []): Promi
   process.env.COB_DATA_DIR = dataDir;
   const cfg = loadConfig(
     ["--copilot-token", "test-token", "--copilot-base-url", mock.url, "--port", "0", ...args],
-    {},
+    { COB_API_KEY: KEY },
     path.join(dataDir, "no-config.json"),
   );
   const ctx = await buildContext(cfg, { allowLogin: false });
   await ctx.bridge.init();
-  const server = createServer(ctx.bridge);
+  const server = createServer(ctx.bridge, { apiKey: ctx.apiKey });
   await new Promise<void>((r) => server.listen(0, "127.0.0.1", () => r()));
   const url = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
   return {
@@ -44,8 +46,16 @@ export async function startBridge(mock: MockCopilot, args: string[] = []): Promi
   };
 }
 
-export async function post(url: string, body: unknown): Promise<{ status: number; json: any; text: string }> {
-  const res = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+export async function post(
+  url: string,
+  body: unknown,
+  headers: Record<string, string> = authHeaders,
+): Promise<{ status: number; json: any; text: string }> {
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "content-type": "application/json", ...headers },
+    body: typeof body === "string" ? body : JSON.stringify(body),
+  });
   const text = await res.text();
   let json: any;
   try {

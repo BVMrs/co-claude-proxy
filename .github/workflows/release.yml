@@ -1,0 +1,41 @@
+name: Release
+# Publishes to npm from CI only, with trusted publishing (OIDC, no npm token
+# stored anywhere) and a signed provenance statement linking the package to
+# this workflow run. One-time setup is in SECURITY.md.
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Configure this environment with required reviewers so a pushed tag alone can't publish.
+    environment: npm-publish
+    permissions:
+      contents: read
+      id-token: write # trusted publishing and provenance
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - name: Tag matches package.json
+        env:
+          TAG: ${{ github.ref_name }}
+        run: test "v$(node -p 'require("./package.json").version')" = "$TAG"
+      - run: npm ci --ignore-scripts
+      - run: npm run typecheck
+      - run: npm run coverage
+      - run: npm audit --audit-level=low
+      - run: npm audit signatures
+      - run: npm run build
+      - run: npm run check:pack
+      - name: Publish with provenance
+        run: npm publish --provenance --ignore-scripts
