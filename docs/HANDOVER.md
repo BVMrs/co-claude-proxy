@@ -63,3 +63,17 @@ See `docs/SETUP.md`. Still to do with a Copilot login:
 - https://www.agno.com/articles/fix-assistant-message-prefill-compatibility-for-claude-4-6-across-all-providers
 - https://blog.laozhang.ai/en/posts/claude-opus-prefill-error-fix.md
 - https://github.com/openbot-coder/litellm/pull/1
+
+## Status update (2026-11-06)
+
+- **Root cause of the 400 on a plain "hello":** Claude Code 2.1.318 ends its main request
+  with a `role: "system"` message that holds the environment block. copilot-api turns
+  every non-user message into an assistant turn
+  ([copilot-api#272](https://github.com/ericc-ch/copilot-api/issues/272)), so the request
+  reached Copilot ending on an assistant turn. This was confirmed by capturing the real
+  request.
+- **copilot-api and the Python shim are replaced** by co-claude-bridge (see the README).
+  It is a standalone TypeScript bridge that signs in to GitHub and calls the Copilot API
+  directly. It folds system messages, repairs prefill per model, and validates model IDs.
+- **Still to do with a Copilot login:** run `npx co-claude-bridge doctor --probe`, then a
+  Claude Code session with tools and a subagent, and record anything that fails here.
