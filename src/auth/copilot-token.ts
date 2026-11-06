@@ -1,4 +1,4 @@
-import { GITHUB_API_URL, githubHeaders } from "../copilot/headers.ts";
+import { githubApiUrl, githubHeaders } from "../copilot/headers.ts";
 import { log } from "../log.ts";
 import type { CopilotTokenResponse } from "../types/copilot.ts";
 
@@ -9,7 +9,10 @@ export type TokenFetcher = () => Promise<CopilotTokenResponse>;
 /** Exchange a GitHub OAuth token for a short-lived Copilot API token. */
 export function githubTokenFetcher(githubToken: string): TokenFetcher {
   return async () => {
-    const res = await fetch(`${GITHUB_API_URL}/copilot_internal/v2/token`, { headers: githubHeaders(githubToken) });
+    const res = await fetch(`${githubApiUrl()}/copilot_internal/v2/token`, {
+      headers: githubHeaders(githubToken),
+      redirect: "error",
+    });
     if (!res.ok) {
       const text = await res.text();
       if (res.status === 401) {

@@ -31,7 +31,30 @@ function stamp(): string {
 
 function emit(tag: string, args: unknown[]): void {
   const text = args.map((a) => (typeof a === "string" ? a : a instanceof Error ? a.message : JSON.stringify(a))).join(" ");
-  sink(`${stamp()} ${tag}${text}`);
+  sink(`${stamp()} ${tag}${redact(text)}`);
+}
+
+// Credentials that must never reach a terminal, a log file or a bug report.
+// Every log line passes through redact(), so a token that ends up in an error
+// message or an upstream body is still scrubbed.
+const SECRET_PATTERNS: RegExp[] = [
+  /\bgh[pousr]_[A-Za-z0-9]{16,}/g, // GitHub OAuth, user, server, refresh and classic PATs
+  /\bgithub_pat_[A-Za-z0-9_]{20,}/g, // fine-grained PATs
+  /\btid=[^\s"',}]+/g, // Copilot API tokens ("tid=...;exp=...;...:sig")
+  /\bcob_[A-Za-z0-9_-]{16,}/g, // this bridge's own API key
+  /\b(Bearer|token)\s+[A-Za-z0-9._~+/=-]{16,}/gi, // Authorization header values
+];
+
+/** Replace anything that looks like a credential with a fixed marker. */
+export function redact(text: string): string {
+  let out = text;
+  for (const re of SECRET_PATTERNS) {
+    out = out.replace(re, (m) => {
+      const sp = m.search(/\s/);
+      return sp > 0 ? `${m.slice(0, sp)} [redacted]` : "[redacted]";
+    });
+  }
+  return out;
 }
 
 export const log = {

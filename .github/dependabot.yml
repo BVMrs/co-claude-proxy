@@ -1,0 +1,23 @@
+version: 2
+updates:
+  # Compromised releases (Shai-Hulud and friends) are usually caught and pulled
+  # within days, so updates wait out a cooldown before Dependabot proposes them.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 5
+    groups:
+      dev-dependencies:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]

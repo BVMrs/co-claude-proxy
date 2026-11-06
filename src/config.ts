@@ -1,6 +1,7 @@
 import fs from "node:fs";
 
 import { configPath } from "./paths.ts";
+import { isLoopbackHost } from "./security/upstream.ts";
 
 export type PrefillMode = "auto" | "convert" | "drop" | "off";
 export type AccountType = "individual" | "business" | "enterprise";
@@ -15,6 +16,10 @@ export interface Config {
   copilotToken?: string;
   /** Override the Copilot API base URL (tests, proxies). */
   copilotBaseUrl?: string;
+  /** Key clients must send to the local server. Default: a random key saved in the data directory. */
+  apiKey?: string;
+  /** Let --host bind a non-loopback address. Off by default. */
+  allowRemote: boolean;
   model?: string;
   smallModel?: string;
   prefill: PrefillMode;
@@ -28,6 +33,8 @@ export interface Config {
   probe: boolean;
   help: boolean;
   version: boolean;
+  /** Problems worth telling the user about that don't stop the run. */
+  warnings: string[];
 }
 
 export class ConfigError extends Error {}
@@ -46,6 +53,8 @@ const FLAGS: Record<string, FlagSpec> = {
   "github-token": { key: "githubToken", type: "string" },
   "copilot-token": { key: "copilotToken", type: "string" },
   "copilot-base-url": { key: "copilotBaseUrl", type: "string" },
+  "api-key": { key: "apiKey", type: "string" },
+  "allow-remote": { key: "allowRemote", type: "boolean" },
   model: { key: "model", type: "string" },
   "small-model": { key: "smallModel", type: "string" },
   prefill: { key: "prefill", type: "string" },
@@ -76,8 +85,13 @@ function defaults(): Config {
     probe: false,
     help: false,
     version: false,
+    allowRemote: false,
+    warnings: [],
   };
 }
+
+/** Flags that carry a credential. On the command line they show up in `ps` and shell history. */
+const SECRET_FLAGS = new Set(["github-token", "copilot-token", "api-key"]);
 
 function coerce(spec: FlagSpec, name: string, raw: string | boolean): unknown {
   if (spec.type === "boolean") {
@@ -131,7 +145,12 @@ function readConfigFile(file: string): Partial<Config> {
 /** Precedence: flags > COB_* environment variables > config file > defaults. */
 export function loadConfig(argv: string[], env: NodeJS.ProcessEnv = process.env, file = configPath()): Config {
   const cfg = defaults();
-  Object.assign(cfg, readConfigFile(env.COB_CONFIG ?? file));
+  const configFile = env.COB_CONFIG ?? file;
+  const fromFile = readConfigFile(configFile);
+  Object.assign(cfg, fromFile);
+  for (const k of ["githubToken", "copilotToken", "apiKey"] as const) {
+    if (fromFile[k]) cfg.warnings.push(`${configFile} holds ${k}; keep credentials out of config files (use the saved sign-in or an environment variable)`);
+  }
 
   for (const [flag, spec] of Object.entries(FLAGS)) {
     const v = env[envName(flag)];
@@ -176,6 +195,9 @@ export function loadConfig(argv: string[], env: NodeJS.ProcessEnv = process.env,
       }
       const spec = FLAGS[name];
       if (!spec) throw new ConfigError(`unknown flag --${name} (see --help)`);
+      if (SECRET_FLAGS.has(name)) {
+        cfg.warnings.push(`--${name} on the command line is visible to other programs on this machine; prefer ${envName(name)}`);
+      }
       if (value === undefined) {
         if (spec.type === "boolean") value = !negate;
         else {
@@ -207,5 +229,15 @@ export function loadConfig(argv: string[], env: NodeJS.ProcessEnv = process.env,
     throw new ConfigError(`--shell must be bash, fish or powershell, got "${cfg.shell}"`);
   }
   if (!Number.isInteger(cfg.port) || cfg.port < 0 || cfg.port > 65535) throw new ConfigError(`--port must be 0-65535`);
+  if (!isLoopbackHost(cfg.host)) {
+    if (!cfg.allowRemote) {
+      throw new ConfigError(
+        `--host ${cfg.host} would expose the bridge, and your Copilot subscription, to the network. ` +
+          `Add --allow-remote if you really mean it.`,
+      );
+    }
+    cfg.warnings.push(`listening on ${cfg.host}: anyone who can reach it and has the API key can use your Copilot subscription, and traffic is not encrypted`);
+  }
+  if (cfg.apiKey !== undefined && cfg.apiKey.length < 16) throw new ConfigError(`--api-key must be at least 16 characters`);
   return cfg;
 }
