@@ -129,8 +129,14 @@ function foldSystemMessages(req: MessagesRequest): number {
       : Array.isArray(req.system)
         ? [...req.system]
         : [];
+  // Long sessions repeat the same block (one environment message per turn): keep one copy.
+  const seen = new Set(sys.map((b) => b.text));
   for (const m of moved) {
-    for (const b of toBlocks(m.content)) if (b.type === "text" && b.text) sys.push(b);
+    for (const b of toBlocks(m.content)) {
+      if (b.type !== "text" || !b.text || seen.has(b.text)) continue;
+      seen.add(b.text);
+      sys.push(b);
+    }
   }
   if (sys.length) req.system = sys;
   return moved.length;

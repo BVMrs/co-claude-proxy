@@ -39,6 +39,23 @@ describe("repairRequest", () => {
     assert.deepEqual(r.request.messages, [{ role: "user", content: "hi" }]);
   });
 
+  it("keeps one copy of a system block repeated across turns", () => {
+    const env = { type: "text" as const, text: "env" };
+    const r = repairRequest(
+      req([
+        { role: "user", content: "a" },
+        { role: "system", content: [env] },
+        { role: "assistant", content: "b" },
+        { role: "user", content: "c" },
+        { role: "system", content: [env, { type: "text", text: "other" }] },
+      ]),
+      auto,
+    );
+    assert.equal(r.systemFolded, 2);
+    assert.deepEqual(r.request.system, [env, { type: "text", text: "other" }]);
+    assert.deepEqual(r.request.messages.map((m) => m.role), ["user", "assistant", "user"]);
+  });
+
   it("converts a text prefill into an instruction on the last user turn", () => {
     const r = repairRequest(req([{ role: "user", content: "q" }, { role: "assistant", content: "{" }]), auto);
     assert.equal(r.prefill, "converted");
