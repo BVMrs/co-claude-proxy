@@ -24,4 +24,20 @@ Investigation history: [docs/HANDOVER.md](docs/HANDOVER.md).
 These proxies are not supported by GitHub. Check GitHub's terms before using one.
 No credentials belong in this repo.
 
-Tests: `python3 -m pytest -q`
+## Tests and CI
+
+```bash
+python3 -m pip install -r requirements-dev.txt   # just pytest
+python3 -m pytest -q
+```
+
+The tests run the shim and probe against an in-process fake of copilot-api
+(`tests/fake_upstream.py`) on 127.0.0.1. They need no Copilot login, token or
+network access. New tests must follow the same rule: use the fake, never a real
+endpoint or a secret.
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs these tests with
+Python 3.10 and 3.13 on every pull request and on every push to `main`. It
+byte-compiles the sources first, then runs `pytest`. The workflow uses no
+secrets and has read-only repository permissions. The repo has no linter or
+type checker configured yet, so CI doesn't run either.
