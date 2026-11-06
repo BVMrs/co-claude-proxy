@@ -1,0 +1,34 @@
+{
+  "name": "co-claude-bridge",
+  "version": "0.1.0",
+  "description": "Run Claude Code on a GitHub Copilot subscription: a local Anthropic Messages API bridge to the Copilot API",
+  "license": "UNLICENSED",
+  "type": "module",
+  "bin": {
+    "co-claude-bridge": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "node --test --test-reporter=spec \"test/**/*.test.ts\"",
+    "dev": "node src/cli.ts",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "claude-code",
+    "copilot",
+    "anthropic",
+    "proxy"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3"
+  }
+}
