@@ -35,6 +35,21 @@
 3. If it fails, start the proxy with `--verbose` (check `--help` for the flag) and capture the model and last message role of the failing request.
 4. If the main loop itself sends prefill, fall back to `claude-haiku-4.5` as the main model, or open an issue on `ericc-ch/copilot-api` asking it to drop or patch a trailing assistant message for models that reject prefill. Alternative proxies: `copilot2api`, `first-officer` (check their issues for "prefill" first).
 
+## Status update (2026-11-05)
+
+These were built and tested on a server without a Copilot login, so they haven't been run against real Copilot yet:
+
+- **Step 3 (capture):** `python3 -m copilot_shim --mode off` logs `model=… last_role=…` for every request without changing anything. This is the capture step without depending on copilot-api's `--verbose` flag.
+- **Step 4 (fix):** `python3 -m copilot_shim` (default `--mode strip`) removes a trailing assistant message for every model except `claude-haiku-4.5`. `--mode hint` keeps the prefill's text as an instruction in the last user turn. This works whichever request sends prefill, helper or main loop, so you neither need to fall back to Haiku for the main model nor wait for an upstream fix.
+- **Model IDs:** `python3 -m copilot_shim.probe --list` lists valid IDs. `python3 -m copilot_shim.probe` re-runs the prefill test above for every `claude*` model and separates `model_not_supported` from prefill rejection.
+
+See `docs/SETUP.md`. Still to do with a Copilot login:
+
+1. Run steps 1–2 above, pointed at the shim: `ANTHROPIC_BASE_URL=http://localhost:4142`.
+2. Record which request(s) the shim log shows with `action=stripped`, and add a credential-free copy to `tests/fixtures/prefill_requests.json`.
+3. Re-run the probe and update the Findings list if the model set has changed.
+4. If `strip` breaks a helper (for example, a JSON title helper now replies in prose), try `--mode hint`.
+
 ## Caveats
 
 - These proxies are reverse-engineered and unsupported by GitHub. Check GitHub's terms before using one on a work-provided Copilot seat.

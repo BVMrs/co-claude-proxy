@@ -1,0 +1,64 @@
+[
+  {
+    "name": "probe_string_prefill",
+    "note": "The handover's manual test: a user turn, then a plain string assistant turn.",
+    "path": "/v1/messages",
+    "body": {"model": "claude-opus-5.5", "max_tokens": 8, "messages": [
+      {"role": "user", "content": "Reply with one word: ok"},
+      {"role": "assistant", "content": "The word is"}
+    ]}
+  },
+  {
+    "name": "helper_json_prefill",
+    "note": "Synthetic. Small/fast helper call that prefills '{' to force JSON (the handover's suspected source).",
+    "path": "/v1/messages",
+    "body": {"model": "claude-sonnet-5.5", "max_tokens": 512, "stream": false,
+      "system": [{"type": "text", "text": "You are Claude Code, Anthropic's official CLI for Claude."}],
+      "messages": [
+        {"role": "user", "content": [{"type": "text", "text": "Analyze if this message indicates a new conversation topic. Answer as JSON with fields isNewTopic and title."}]},
+        {"role": "assistant", "content": [{"type": "text", "text": "{"}]}
+      ]}
+  },
+  {
+    "name": "interrupted_turn_streaming",
+    "note": "Synthetic. Main loop after an interrupted turn: the partial assistant reply is the last message.",
+    "path": "/v1/messages",
+    "body": {"model": "claude-opus-5.5", "max_tokens": 32000, "stream": true,
+      "system": [{"type": "text", "text": "You are Claude Code, Anthropic's official CLI for Claude."}],
+      "messages": [
+        {"role": "user", "content": [{"type": "text", "text": "refactor the parser"}]},
+        {"role": "assistant", "content": [{"type": "text", "text": "I'll start by reading the parser module."}]}
+      ]}
+  },
+  {
+    "name": "after_tool_result",
+    "note": "Synthetic. Tool loop: a tool_result user turn, then a partial assistant text turn.",
+    "path": "/v1/messages",
+    "body": {"model": "claude-opus-5.5", "max_tokens": 32000, "stream": true, "messages": [
+      {"role": "user", "content": "list files"},
+      {"role": "assistant", "content": [{"type": "tool_use", "id": "toolu_1", "name": "Bash", "input": {"command": "ls"}}]},
+      {"role": "user", "content": [{"type": "tool_result", "tool_use_id": "toolu_1", "content": "a.py\nb.py"}]},
+      {"role": "assistant", "content": [{"type": "text", "text": "There are two files:"}]}
+    ]}
+  },
+  {
+    "name": "two_trailing_assistant",
+    "note": "Synthetic. Two consecutive assistant turns at the end (e.g. a resumed session).",
+    "path": "/v1/messages",
+    "body": {"model": "claude-haiku-5.5", "max_tokens": 64, "messages": [
+      {"role": "user", "content": "hi"},
+      {"role": "assistant", "content": "Hello"},
+      {"role": "assistant", "content": [{"type": "text", "text": "! How can"}]}
+    ]}
+  },
+  {
+    "name": "openai_chat_prefill",
+    "note": "OpenAI chat-completions shape with a trailing assistant message.",
+    "path": "/v1/chat/completions",
+    "body": {"model": "claude-sonnet-5", "max_tokens": 16, "messages": [
+      {"role": "system", "content": "be brief"},
+      {"role": "user", "content": "name a color"},
+      {"role": "assistant", "content": "The color is"}
+    ]}
+  }
+]
