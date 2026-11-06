@@ -76,7 +76,7 @@ async function main(): Promise<number> {
     case "doctor":
       return doctor(cfg);
     case "env": {
-      const ctx = await buildContext(cfg, { allowLogin: false });
+      const ctx = await buildContext(cfg, { allowLogin: true });
       await ctx.bridge.init();
       console.log(formatEnv(claudeEnv(cfg, ctx.bridge.slots), cfg.shell));
       return 0;

@@ -22,7 +22,7 @@ export async function doctor(cfg: Config): Promise<number> {
 
   let ctx;
   try {
-    ctx = await buildContext(cfg, { allowLogin: false });
+    ctx = await buildContext(cfg, { allowLogin: true });
     ok(`Copilot token issued${ctx.login ? ` for ${ctx.login}` : ""}`);
   } catch (e) {
     bad((e as Error).message);

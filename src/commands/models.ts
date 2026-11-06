@@ -3,7 +3,7 @@ import { rejectsPrefill } from "../pipeline/repair.ts";
 import { buildContext } from "./context.ts";
 
 export async function models(cfg: Config): Promise<void> {
-  const ctx = await buildContext(cfg, { allowLogin: false });
+  const ctx = await buildContext(cfg, { allowLogin: true });
   const list = await ctx.registry.list();
   await ctx.bridge.init();
   const verdicts = ctx.bridge.prefillVerdicts;
