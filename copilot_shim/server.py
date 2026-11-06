@@ -24,6 +24,7 @@ from .rewrite import DEFAULT_PREFILL_OK, MODES, Policy, rewrite
 
 log = logging.getLogger("copilot_shim")
 
+ANTHROPIC_PATHS = ("/v1/messages", "/v1/messages/count_tokens")
 REWRITE_PATHS = (
     "/v1/messages",
     "/v1/messages/count_tokens",
@@ -63,22 +64,24 @@ def make_handler(upstream: str, policy: Policy, timeout: float = 600.0):
             body = self.rfile.read(length) if length else b""
             path_only = self.path.split("?", 1)[0]
 
-            if self.command == "POST" and path_only.rstrip("/") in REWRITE_PATHS and body:
+            route = path_only.rstrip("/")
+            if self.command == "POST" and route in REWRITE_PATHS and body:
                 try:
                     payload = json.loads(body)
                 except ValueError:
                     payload = None
                 if isinstance(payload, dict):
-                    res = rewrite(payload, policy)
+                    res = rewrite(payload, policy, anthropic=route in ANTHROPIC_PATHS)
                     model_note = res.model
                     if res.original_model != res.model:
                         model_note = f"{res.original_model}->{res.model}"
                     log.info(
-                        "%s model=%s last_role=%s stream=%s action=%s%s",
+                        "%s model=%s last_role=%s stream=%s action=%s%s%s",
                         path_only, model_note, res.last_role, bool(payload.get("stream")),
                         res.action, f" removed={res.removed}" if res.removed else "",
+                        f" system_folded={res.system_folded}" if res.system_folded else "",
                     )
-                    if res.action != "none" or res.original_model != res.model:
+                    if res.action != "none" or res.system_folded or res.original_model != res.model:
                         body = json.dumps(res.body).encode()
 
             headers = {k: v for k, v in self.headers.items() if k.lower() not in HOP_BY_HOP}
