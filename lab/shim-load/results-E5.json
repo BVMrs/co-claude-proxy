@@ -1,0 +1,73 @@
+{
+ "meta": {
+  "python": "3.13.12",
+  "cpus": 4,
+  "secs": 30.1
+ },
+ "rows": [
+  {
+   "in_bytes": 1054278,
+   "concurrent": 1,
+   "idle_rss_mib": 22.7,
+   "peak_rss_mib": 26.4,
+   "per_request_mib": 3.7,
+   "per_request_x_body": 3.7
+  },
+  {
+   "in_bytes": 1054278,
+   "concurrent": 4,
+   "idle_rss_mib": 22.6,
+   "peak_rss_mib": 39.5,
+   "per_request_mib": 4.2,
+   "per_request_x_body": 4.2
+  },
+  {
+   "in_bytes": 1054278,
+   "concurrent": 8,
+   "idle_rss_mib": 22.7,
+   "peak_rss_mib": 57.3,
+   "per_request_mib": 4.3,
+   "per_request_x_body": 4.3
+  },
+  {
+   "in_bytes": 1054278,
+   "concurrent": 16,
+   "idle_rss_mib": 22.7,
+   "peak_rss_mib": 95.9,
+   "per_request_mib": 4.6,
+   "per_request_x_body": 4.6
+  },
+  {
+   "in_bytes": 4200083,
+   "concurrent": 1,
+   "idle_rss_mib": 22.6,
+   "peak_rss_mib": 33.0,
+   "per_request_mib": 10.4,
+   "per_request_x_body": 2.6
+  },
+  {
+   "in_bytes": 4200083,
+   "concurrent": 4,
+   "idle_rss_mib": 22.7,
+   "peak_rss_mib": 79.8,
+   "per_request_mib": 14.3,
+   "per_request_x_body": 3.6
+  },
+  {
+   "in_bytes": 4200083,
+   "concurrent": 8,
+   "idle_rss_mib": 22.7,
+   "peak_rss_mib": 145.1,
+   "per_request_mib": 15.3,
+   "per_request_x_body": 3.8
+  },
+  {
+   "in_bytes": 4200083,
+   "concurrent": 16,
+   "idle_rss_mib": 22.7,
+   "peak_rss_mib": 295.0,
+   "per_request_mib": 17.0,
+   "per_request_x_body": 4.2
+  }
+ ]
+}

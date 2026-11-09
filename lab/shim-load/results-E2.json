@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "python": "3.13.12",
+  "cpus": 4,
+  "secs": 2.1
+ },
+ "rows": [
+  {
+   "in_bytes": 59686,
+   "direct_ms_p50": 0.66,
+   "shim_ms_p50": 2.75,
+   "shim_ms_p90": 4.33,
+   "added_ms_p50": 2.09
+  },
+  {
+   "in_bytes": 206125,
+   "direct_ms_p50": 0.71,
+   "shim_ms_p50": 4.3,
+   "shim_ms_p90": 4.8,
+   "added_ms_p50": 3.59
+  },
+  {
+   "in_bytes": 514216,
+   "direct_ms_p50": 0.81,
+   "shim_ms_p50": 7.0,
+   "shim_ms_p90": 8.37,
+   "added_ms_p50": 6.19
+  },
+  {
+   "in_bytes": 1054278,
+   "direct_ms_p50": 0.75,
+   "shim_ms_p50": 12.19,
+   "shim_ms_p90": 14.98,
+   "added_ms_p50": 11.44
+  },
+  {
+   "in_bytes": 2097944,
+   "direct_ms_p50": 1.07,
+   "shim_ms_p50": 30.3,
+   "shim_ms_p90": 42.25,
+   "added_ms_p50": 29.23
+  },
+  {
+   "in_bytes": 4200083,
+   "direct_ms_p50": 1.33,
+   "shim_ms_p50": 47.71,
+   "shim_ms_p90": 52.96,
+   "added_ms_p50": 46.38
+  }
+ ]
+}
