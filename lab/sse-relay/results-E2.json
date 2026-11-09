@@ -1,0 +1,10 @@
+{
+ "E2": {
+  "trials": 300,
+  "bytes": 6891873,
+  "max_event": 306328,
+  "failures": 0,
+  "examples": []
+ },
+ "E2_seconds": 9.4
+}

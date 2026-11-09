@@ -1,0 +1,99 @@
+{
+ "E3": {
+  "requests_on_one_client_conn": 30,
+  "ok": 30,
+  "upstream_tcp_connections": 30,
+  "failures": []
+ },
+ "E3_seconds": 1.0,
+ "E4": {
+  "upstream_gap_20ms": {
+   "upstream_sees_close_after_ms": 42.89,
+   "how": "FIN",
+   "stderr_traceback": true,
+   "stderr_last_line": "----------------------------------------"
+  },
+  "upstream_gap_500ms": {
+   "upstream_sees_close_after_ms": 1004.06,
+   "how": "FIN",
+   "stderr_traceback": true,
+   "stderr_last_line": "----------------------------------------"
+  }
+ },
+ "E4_seconds": 3.6,
+ "E5": {
+  "chunked_close_without_terminator": {
+   "status": 200,
+   "events": 3,
+   "client_complete": false,
+   "client_error": "eof inside chunked body (no terminator)",
+   "elapsed_ms": 56.8,
+   "stderr_traceback": true,
+   "stderr_exc": "http.client.IncompleteRead: IncompleteRead(0 bytes read)"
+  },
+  "close_delimited_eof_after_3_events": {
+   "status": 200,
+   "events": 3,
+   "client_complete": true,
+   "client_error": null,
+   "elapsed_ms": 52.48,
+   "stderr_traceback": false,
+   "stderr_exc": ""
+  },
+  "close_before_headers": {
+   "status": 502,
+   "events": 0,
+   "client_complete": true,
+   "client_error": null,
+   "elapsed_ms": 2.24,
+   "stderr_traceback": false,
+   "stderr_exc": ""
+  },
+  "rst_mid_stream": {
+   "status": 200,
+   "events": 1,
+   "client_complete": false,
+   "client_error": "eof inside chunked body (no terminator)",
+   "elapsed_ms": 56.13,
+   "stderr_traceback": true,
+   "stderr_exc": "ConnectionResetError: [Errno 104] Connection reset by peer"
+  },
+  "stall_mid_stream_shim_timeout_1s": {
+   "status": 200,
+   "events": 1,
+   "client_complete": false,
+   "client_error": "eof inside chunked body (no terminator)",
+   "elapsed_ms": 1008.1,
+   "stderr_traceback": false,
+   "stderr_exc": ""
+  },
+  "stall_before_headers_shim_timeout_1s": {
+   "status": 502,
+   "events": 0,
+   "client_complete": true,
+   "client_error": null,
+   "elapsed_ms": 1007.76,
+   "stderr_traceback": false,
+   "stderr_exc": ""
+  }
+ },
+ "E5_seconds": 2.8,
+ "E6": {
+  "chunked_request_body": {
+   "client_status": 200,
+   "upstream_saw": [
+    [
+     "POST /v1/messages HTTP/1.1",
+     "0",
+     null,
+     0
+    ]
+   ],
+   "next_request_on_same_conn": {
+    "status": 0,
+    "error": "eof before headers"
+   }
+  }
+ },
+ "E6_seconds": 0.1
+}
