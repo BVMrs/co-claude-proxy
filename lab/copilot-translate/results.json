@@ -1,0 +1,570 @@
+{
+ "n_generated": 2000,
+ "stats": {
+  "off": {
+   "  text lost includes 'DOC'": 794,
+   "X-Initiator=agent": 1909,
+   "X-Initiator=user": 103,
+   "bodies": 2012,
+   "empty user content": 200,
+   "ends on assistant (prefill 400)": 881,
+   "image inside tool message": 949,
+   "model renamed claude-opus-4-8-20260101 -> claude-opus-4": 369,
+   "model renamed claude-sonnet-4-6-20260101 -> claude-sonnet-4": 434,
+   "text lost": 794,
+   "thinking sent as assistant text": 1140,
+   "tool_call not answered": 188
+  },
+  "strip": {
+   "  text lost includes 'DOC'": 794,
+   "X-Initiator=agent": 1680,
+   "X-Initiator=user": 332,
+   "bodies": 2012,
+   "empty user content": 200,
+   "ends on assistant (prefill 400)": 1,
+   "image inside tool message": 949,
+   "model renamed claude-opus-4-8-20260101 -> claude-opus-4": 369,
+   "model renamed claude-sonnet-4-6-20260101 -> claude-sonnet-4": 434,
+   "text lost": 794,
+   "thinking sent as assistant text": 1140
+  },
+  "hint": {
+   "  text lost includes 'DOC'": 794,
+   "X-Initiator=agent": 1680,
+   "X-Initiator=user": 332,
+   "bodies": 2012,
+   "empty user content": 179,
+   "image inside tool message": 949,
+   "model renamed claude-opus-4-8-20260101 -> claude-opus-4": 369,
+   "model renamed claude-sonnet-4-6-20260101 -> claude-sonnet-4": 434,
+   "text lost": 794,
+   "thinking sent as assistant text": 1140
+  }
+ },
+ "examples": {
+  "off / ends on assistant (prefill 400)": [
+   "fixture:probe_string_prefill",
+   "ends on assistant (prefill 400)"
+  ],
+  "strip / ends on assistant (prefill 400)": [
+   "edge:empty_user_list_then_prefill",
+   "ends on assistant (prefill 400)"
+  ],
+  "off / empty user content": [
+   "edge:document_only_user",
+   "empty user content"
+  ],
+  "off / text lost": [
+   "edge:document_only_user",
+   "text lost: DOC"
+  ],
+  "strip / empty user content": [
+   "edge:document_only_user",
+   "empty user content"
+  ],
+  "strip / text lost": [
+   "edge:document_only_user",
+   "text lost: DOC"
+  ],
+  "hint / text lost": [
+   "edge:document_only_user",
+   "text lost: DOC"
+  ],
+  "off / thinking sent as assistant text": [
+   "gen:0",
+   "thinking sent as assistant text"
+  ],
+  "strip / thinking sent as assistant text": [
+   "gen:0",
+   "thinking sent as assistant text"
+  ],
+  "hint / thinking sent as assistant text": [
+   "gen:0",
+   "thinking sent as assistant text"
+  ],
+  "off / image inside tool message": [
+   "gen:1",
+   "image inside tool message"
+  ],
+  "off / tool_call not answered": [
+   "gen:1",
+   "tool_call not answered"
+  ],
+  "strip / image inside tool message": [
+   "gen:1",
+   "image inside tool message"
+  ],
+  "hint / image inside tool message": [
+   "gen:1",
+   "image inside tool message"
+  ],
+  "hint / empty user content": [
+   "gen:10",
+   "empty user content"
+  ]
+ },
+ "named_cases": [
+  {
+   "case": "fixture:probe_string_prefill",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "fixture:probe_string_prefill",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "fixture:probe_string_prefill",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "fixture:helper_json_prefill",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "system",
+    "user",
+    "assistant"
+   ],
+   "model": "claude-sonnet-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "fixture:helper_json_prefill",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "system",
+    "user"
+   ],
+   "model": "claude-sonnet-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "fixture:helper_json_prefill",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "system",
+    "user"
+   ],
+   "model": "claude-sonnet-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "fixture:interrupted_turn_streaming",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "system",
+    "user",
+    "assistant"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "fixture:interrupted_turn_streaming",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "system",
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "fixture:interrupted_turn_streaming",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "system",
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "fixture:after_tool_result",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant",
+    "tool",
+    "assistant"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "fixture:after_tool_result",
+   "mode": "strip",
+   "last_role": "tool",
+   "roles": [
+    "user",
+    "assistant",
+    "tool"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": []
+  },
+  {
+   "case": "fixture:after_tool_result",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user",
+    "assistant",
+    "tool",
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": []
+  },
+  {
+   "case": "fixture:two_trailing_assistant",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant",
+    "assistant"
+   ],
+   "model": "claude-haiku-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "fixture:two_trailing_assistant",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-haiku-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "fixture:two_trailing_assistant",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-haiku-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:empty_user_list_then_prefill",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant",
+    "assistant"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "edge:empty_user_list_then_prefill",
+   "mode": "strip",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "edge:empty_user_list_then_prefill",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user",
+    "assistant",
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": []
+  },
+  {
+   "case": "edge:document_only_user",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)",
+    "empty user content",
+    "text lost: DOC"
+   ]
+  },
+  {
+   "case": "edge:document_only_user",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "user",
+   "violations": [
+    "empty user content",
+    "text lost: DOC"
+   ]
+  },
+  {
+   "case": "edge:document_only_user",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "user",
+   "violations": [
+    "text lost: DOC"
+   ]
+  },
+  {
+   "case": "edge:cc21_hello_trailing_system",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "edge:cc21_hello_trailing_system",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "system",
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:cc21_hello_trailing_system",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "system",
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:tool_results_then_prefill",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant",
+    "tool",
+    "assistant"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "edge:tool_results_then_prefill",
+   "mode": "strip",
+   "last_role": "tool",
+   "roles": [
+    "user",
+    "assistant",
+    "tool"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": []
+  },
+  {
+   "case": "edge:tool_results_then_prefill",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user",
+    "assistant",
+    "tool",
+    "user"
+   ],
+   "model": "claude-opus-5.5",
+   "initiator": "agent",
+   "violations": []
+  },
+  {
+   "case": "edge:dated_opus_4x",
+   "mode": "off",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-4",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:dated_opus_4x",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-4",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:dated_opus_4x",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-4",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:dated_opus_5x",
+   "mode": "off",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-5-5-20260601",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:dated_opus_5x",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-5-5-20260601",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:dated_opus_5x",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-opus-5-5-20260601",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:dated_haiku_45",
+   "mode": "off",
+   "last_role": "assistant",
+   "roles": [
+    "user",
+    "assistant"
+   ],
+   "model": "claude-haiku-4-5-20251001",
+   "initiator": "agent",
+   "violations": [
+    "ends on assistant (prefill 400)"
+   ]
+  },
+  {
+   "case": "edge:dated_haiku_45",
+   "mode": "strip",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-haiku-4-5-20251001",
+   "initiator": "user",
+   "violations": []
+  },
+  {
+   "case": "edge:dated_haiku_45",
+   "mode": "hint",
+   "last_role": "user",
+   "roles": [
+    "user"
+   ],
+   "model": "claude-haiku-4-5-20251001",
+   "initiator": "user",
+   "violations": []
+  }
+ ]
+}
