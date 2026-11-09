@@ -1,0 +1,1073 @@
+[
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 9183,
+      "cache_control": true,
+      "text_head": "# Environment\nYou ha"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 9183,
+    "text_head": "# Environment\nYou ha"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 9183,
+    "text_head": "# Environment\nYou ha"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 13,
+      "cache_control": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 9183,
+    "text_head": "# Environment\nYou ha"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 13
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 120,
+      "cache_control": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 9183,
+    "text_head": "# Environment\nYou ha"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 13
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 120
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 9183,
+    "text_head": "# Environment\nYou ha"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 13
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 120
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 106,
+      "cache_control": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 9183,
+    "text_head": "# Environment\nYou ha"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 13
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 120
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 106
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 33,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 236,
+      "cache_control": true,
+      "text_head": "# Environment update"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 9183,
+    "text_head": "# Environment\nYou ha"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 13
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 120
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 106
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 33,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 236,
+    "text_head": "# Environment update"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 6
+   },
+   {
+    "role": "system",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 236,
+      "cache_control": true,
+      "text_head": "# Environment update"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "model": "claude-opus-5.5",
+  "system_block_lens": [
+   74,
+   62,
+   5944
+  ],
+  "tools_json_len": 30350,
+  "messages": [
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 567,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 571,
+      "cache_control": false
+     },
+     {
+      "type": "text",
+      "len": 132,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 9183,
+    "text_head": "# Environment\nYou ha"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 13
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 120
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 34,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 106
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 8,
+      "cache_control": false
+     },
+     {
+      "type": "tool_use",
+      "len": 2,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "tool_result",
+      "len": 33,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "system",
+    "str_len": 236,
+    "text_head": "# Environment update"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "str_len": 6
+   },
+   {
+    "role": "system",
+    "str_len": 236,
+    "text_head": "# Environment update"
+   },
+   {
+    "role": "assistant",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 5,
+      "cache_control": false
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "blocks": [
+     {
+      "type": "text",
+      "len": 12,
+      "cache_control": true
+     }
+    ]
+   }
+  ]
+ }
+]

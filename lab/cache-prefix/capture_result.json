@@ -1,0 +1,146 @@
+{
+ "off": {
+  "requests": 9,
+  "prompt_tokens": 109774,
+  "cached_tokens": 97288,
+  "cached_tokens_oai_rule": 96896,
+  "hit_rate": 0.8863,
+  "usd_input": 0.0694,
+  "usd_input_if_miss_is_cache_write": 0.0819,
+  "per_request": [
+   {
+    "tokens": 11926,
+    "cached": 0
+   },
+   {
+    "tokens": 12014,
+    "cached": 11926
+   },
+   {
+    "tokens": 12035,
+    "cached": 12014
+   },
+   {
+    "tokens": 12083,
+    "cached": 12035
+   },
+   {
+    "tokens": 12172,
+    "cached": 12083
+   },
+   {
+    "tokens": 12216,
+    "cached": 12172
+   },
+   {
+    "tokens": 12377,
+    "cached": 12216
+   },
+   {
+    "tokens": 12465,
+    "cached": 12377
+   },
+   {
+    "tokens": 12486,
+    "cached": 12465
+   }
+  ],
+  "payload_problems": 3
+ },
+ "strip": {
+  "requests": 9,
+  "prompt_tokens": 109662,
+  "cached_tokens": 95845,
+  "cached_tokens_oai_rule": 95360,
+  "hit_rate": 0.874,
+  "usd_input": 0.0744,
+  "usd_input_if_miss_is_cache_write": 0.0883,
+  "per_request": [
+   {
+    "tokens": 11918,
+    "cached": 0
+   },
+   {
+    "tokens": 12006,
+    "cached": 11918
+   },
+   {
+    "tokens": 12027,
+    "cached": 12006
+   },
+   {
+    "tokens": 12075,
+    "cached": 12027
+   },
+   {
+    "tokens": 12164,
+    "cached": 12075
+   },
+   {
+    "tokens": 12208,
+    "cached": 12164
+   },
+   {
+    "tokens": 12361,
+    "cached": 11577
+   },
+   {
+    "tokens": 12441,
+    "cached": 11637
+   },
+   {
+    "tokens": 12462,
+    "cached": 12441
+   }
+  ],
+  "payload_problems": 0
+ },
+ "inplace": {
+  "requests": 9,
+  "prompt_tokens": 109757,
+  "cached_tokens": 97275,
+  "cached_tokens_oai_rule": 96896,
+  "hit_rate": 0.8863,
+  "usd_input": 0.0694,
+  "usd_input_if_miss_is_cache_write": 0.0819,
+  "per_request": [
+   {
+    "tokens": 11925,
+    "cached": 0
+   },
+   {
+    "tokens": 12013,
+    "cached": 11925
+   },
+   {
+    "tokens": 12034,
+    "cached": 12013
+   },
+   {
+    "tokens": 12082,
+    "cached": 12034
+   },
+   {
+    "tokens": 12170,
+    "cached": 12082
+   },
+   {
+    "tokens": 12215,
+    "cached": 12170
+   },
+   {
+    "tokens": 12375,
+    "cached": 12215
+   },
+   {
+    "tokens": 12461,
+    "cached": 12375
+   },
+   {
+    "tokens": 12482,
+    "cached": 12461
+   }
+  ],
+  "payload_problems": 0
+ }
+}
