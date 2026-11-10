@@ -1,0 +1,109 @@
+{
+ "by_log_kind": {
+  "handover.jsonl | main": {
+   "off": {
+    "n": 10,
+    "ends_assistant": 1
+   },
+   "strip": {
+    "n": 10,
+    "ends_assistant": 0
+   }
+  },
+  "handover.jsonl | subagent": {
+   "off": {
+    "n": 1,
+    "ends_assistant": 1
+   },
+   "strip": {
+    "n": 1,
+    "ends_assistant": 0
+   }
+  },
+  "minimal.jsonl | helper": {
+   "off": {
+    "n": 6,
+    "ends_assistant": 0
+   },
+   "strip": {
+    "n": 6,
+    "ends_assistant": 0
+   }
+  },
+  "minimal.jsonl | main": {
+   "off": {
+    "n": 10,
+    "ends_assistant": 1
+   },
+   "strip": {
+    "n": 10,
+    "ends_assistant": 0
+   }
+  },
+  "minimal.jsonl | subagent": {
+   "off": {
+    "n": 1,
+    "ends_assistant": 1
+   },
+   "strip": {
+    "n": 1,
+    "ends_assistant": 0
+   }
+  },
+  "mapped-essential-on.jsonl | helper": {
+   "off": {
+    "n": 6,
+    "ends_assistant": 0
+   },
+   "strip": {
+    "n": 6,
+    "ends_assistant": 0
+   }
+  },
+  "mapped-essential-on.jsonl | main": {
+   "off": {
+    "n": 10,
+    "ends_assistant": 1
+   },
+   "strip": {
+    "n": 10,
+    "ends_assistant": 0
+   }
+  },
+  "mapped-essential-on.jsonl | subagent": {
+   "off": {
+    "n": 1,
+    "ends_assistant": 1
+   },
+   "strip": {
+    "n": 1,
+    "ends_assistant": 0
+   }
+  },
+  "minimal-extra.jsonl | main": {
+   "off": {
+    "n": 5,
+    "ends_assistant": 1
+   },
+   "strip": {
+    "n": 5,
+    "ends_assistant": 0
+   }
+  },
+  "handover-extra.jsonl | main": {
+   "off": {
+    "n": 5,
+    "ends_assistant": 1
+   },
+   "strip": {
+    "n": 5,
+    "ends_assistant": 0
+   }
+  }
+ },
+ "total": 55,
+ "ends_assistant": {
+  "off": 8,
+  "strip": 0
+ }
+}
