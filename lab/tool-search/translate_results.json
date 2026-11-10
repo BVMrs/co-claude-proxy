@@ -1,0 +1,386 @@
+[
+ {
+  "case": "select40",
+  "anthropic_tools": 12,
+  "anthropic_deferred": 1,
+  "openai_tools": 12,
+  "openai_tool_bytes": 30711,
+  "deferred_exposed_as_functions": 1,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 0,
+  "tool_reference_results_empty_in_openai": 0,
+  "referenced_tools": 0,
+  "referenced_tools_in_openai_tools": 0,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "minimum"
+  ]
+ },
+ {
+  "case": "select40",
+  "anthropic_tools": 13,
+  "anthropic_deferred": 2,
+  "openai_tools": 13,
+  "openai_tool_bytes": 31321,
+  "deferred_exposed_as_functions": 2,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 1,
+  "tool_reference_results_empty_in_openai": 1,
+  "referenced_tools": 1,
+  "referenced_tools_in_openai_tools": 1,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "select40",
+  "anthropic_tools": 13,
+  "anthropic_deferred": 2,
+  "openai_tools": 13,
+  "openai_tool_bytes": 31321,
+  "deferred_exposed_as_functions": 2,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 1,
+  "tool_reference_results_empty_in_openai": 1,
+  "referenced_tools": 1,
+  "referenced_tools_in_openai_tools": 1,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "keyword40",
+  "anthropic_tools": 12,
+  "anthropic_deferred": 1,
+  "openai_tools": 12,
+  "openai_tool_bytes": 30711,
+  "deferred_exposed_as_functions": 1,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 0,
+  "tool_reference_results_empty_in_openai": 0,
+  "referenced_tools": 0,
+  "referenced_tools_in_openai_tools": 0,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "minimum"
+  ]
+ },
+ {
+  "case": "keyword40",
+  "anthropic_tools": 17,
+  "anthropic_deferred": 6,
+  "openai_tools": 17,
+  "openai_tool_bytes": 33761,
+  "deferred_exposed_as_functions": 6,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 1,
+  "tool_reference_results_empty_in_openai": 1,
+  "referenced_tools": 5,
+  "referenced_tools_in_openai_tools": 5,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "keyword40",
+  "anthropic_tools": 17,
+  "anthropic_deferred": 6,
+  "openai_tools": 17,
+  "openai_tool_bytes": 33761,
+  "deferred_exposed_as_functions": 6,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 1,
+  "tool_reference_results_empty_in_openai": 1,
+  "referenced_tools": 5,
+  "referenced_tools_in_openai_tools": 5,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "keyword40",
+  "anthropic_tools": 19,
+  "anthropic_deferred": 8,
+  "openai_tools": 19,
+  "openai_tool_bytes": 35643,
+  "deferred_exposed_as_functions": 8,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [
+   "mcp__lab__long_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+  ],
+  "tool_reference_results": 2,
+  "tool_reference_results_empty_in_openai": 2,
+  "referenced_tools": 7,
+  "referenced_tools_in_openai_tools": 7,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "keyword40",
+  "anthropic_tools": 19,
+  "anthropic_deferred": 8,
+  "openai_tools": 19,
+  "openai_tool_bytes": 35643,
+  "deferred_exposed_as_functions": 8,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [
+   "mcp__lab__long_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+  ],
+  "tool_reference_results": 2,
+  "tool_reference_results_empty_in_openai": 2,
+  "referenced_tools": 7,
+  "referenced_tools_in_openai_tools": 7,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "off40",
+  "anthropic_tools": 65,
+  "anthropic_deferred": 0,
+  "openai_tools": 65,
+  "openai_tool_bytes": 96676,
+  "deferred_exposed_as_functions": 0,
+  "placeholder_exposed": false,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [
+   "mcp__lab__long_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+   "mcp__lab__long_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+  ],
+  "tool_reference_results": 0,
+  "tool_reference_results_empty_in_openai": 0,
+  "referenced_tools": 0,
+  "referenced_tools_in_openai_tools": 0,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "off40",
+  "anthropic_tools": 65,
+  "anthropic_deferred": 0,
+  "openai_tools": 65,
+  "openai_tool_bytes": 96676,
+  "deferred_exposed_as_functions": 0,
+  "placeholder_exposed": false,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [
+   "mcp__lab__long_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+   "mcp__lab__long_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+  ],
+  "tool_reference_results": 0,
+  "tool_reference_results_empty_in_openai": 0,
+  "referenced_tools": 0,
+  "referenced_tools_in_openai_tools": 0,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "off40",
+  "anthropic_tools": 65,
+  "anthropic_deferred": 0,
+  "openai_tools": 65,
+  "openai_tool_bytes": 96676,
+  "deferred_exposed_as_functions": 0,
+  "placeholder_exposed": false,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [
+   "mcp__lab__long_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+   "mcp__lab__long_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+  ],
+  "tool_reference_results": 0,
+  "tool_reference_results_empty_in_openai": 0,
+  "referenced_tools": 0,
+  "referenced_tools_in_openai_tools": 0,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "off150",
+  "anthropic_tools": 175,
+  "anthropic_deferred": 0,
+  "openai_tools": 175,
+  "openai_tool_bytes": 163876,
+  "deferred_exposed_as_functions": 0,
+  "placeholder_exposed": false,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [
+   "mcp__lab__long_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+   "mcp__lab__long_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+  ],
+  "tool_reference_results": 0,
+  "tool_reference_results_empty_in_openai": 0,
+  "referenced_tools": 0,
+  "referenced_tools_in_openai_tools": 0,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "off150",
+  "anthropic_tools": 175,
+  "anthropic_deferred": 0,
+  "openai_tools": 175,
+  "openai_tool_bytes": 163876,
+  "deferred_exposed_as_functions": 0,
+  "placeholder_exposed": false,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [
+   "mcp__lab__long_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+   "mcp__lab__long_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+  ],
+  "tool_reference_results": 0,
+  "tool_reference_results_empty_in_openai": 0,
+  "referenced_tools": 0,
+  "referenced_tools_in_openai_tools": 0,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "select150",
+  "anthropic_tools": 12,
+  "anthropic_deferred": 1,
+  "openai_tools": 12,
+  "openai_tool_bytes": 30711,
+  "deferred_exposed_as_functions": 1,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 0,
+  "tool_reference_results_empty_in_openai": 0,
+  "referenced_tools": 0,
+  "referenced_tools_in_openai_tools": 0,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "minimum"
+  ]
+ },
+ {
+  "case": "select150",
+  "anthropic_tools": 13,
+  "anthropic_deferred": 2,
+  "openai_tools": 13,
+  "openai_tool_bytes": 31323,
+  "deferred_exposed_as_functions": 2,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 1,
+  "tool_reference_results_empty_in_openai": 1,
+  "referenced_tools": 1,
+  "referenced_tools_in_openai_tools": 1,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ },
+ {
+  "case": "select150",
+  "anthropic_tools": 13,
+  "anthropic_deferred": 2,
+  "openai_tools": 13,
+  "openai_tool_bytes": 31323,
+  "deferred_exposed_as_functions": 2,
+  "placeholder_exposed": true,
+  "defer_loading_key_in_output": false,
+  "names_over_64": [],
+  "tool_reference_results": 1,
+  "tool_reference_results_empty_in_openai": 1,
+  "referenced_tools": 1,
+  "referenced_tools_in_openai_tools": 1,
+  "referenced_names_in_tool_messages": 0,
+  "schema_keywords": [
+   "$schema",
+   "default",
+   "exclusiveMinimum",
+   "format",
+   "minimum"
+  ]
+ }
+]
