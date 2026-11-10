@@ -1,0 +1,97 @@
+{
+ "pr280_routing": {
+  "raw_native": 97,
+  "raw_translated": 0,
+  "raw_native_with_role_system_message": 79,
+  "raw_last_role_system": 18,
+  "shim_native": 97,
+  "shim_translated": 0,
+  "shim_native_with_role_system_message": 0,
+  "shim_last_role_system": 0,
+  "shim_bodies_with_cache_control": 79,
+  "shim_cache_control_markers": 237
+ },
+ "requests": 97,
+ "by_capture_dir": {
+  "cc": 9,
+  "prefill-src": 72,
+  "tool-search": 16
+ },
+ "classes": {
+  "loop (thinking=adaptive)": 79,
+  "json_schema helper": 18
+ },
+ "top_level_fields": {
+  "model": 97,
+  "messages": 97,
+  "system": 97,
+  "tools": 97,
+  "metadata": 97,
+  "max_tokens": 97,
+  "thinking": 85,
+  "context_management": 79,
+  "output_config": 97,
+  "stream": 97,
+  "temperature": 6
+ },
+ "field_reaches_openai_payload": {
+  "model": 97,
+  "messages": 97,
+  "system": 97,
+  "tools": 97,
+  "metadata": 97,
+  "max_tokens": 97,
+  "thinking": 0,
+  "context_management": 0,
+  "output_config": 0,
+  "stream": 97,
+  "temperature": 6
+ },
+ "field_values": {
+  "model": {
+   "\"claude-opus-5.5\"": 91,
+   "\"claude-haiku-4.5\"": 6
+  },
+  "max_tokens": {
+   "128000": 91,
+   "32000": 6
+  },
+  "thinking": {
+   "{\"display\": \"omitted\", \"type\": \"adaptive\"}": 25,
+   "{\"display\": \"updates\", \"type\": \"adaptive\"}": 54,
+   "{\"type\": \"disabled\"}": 6
+  },
+  "context_management": {
+   "{\"edits\": [{\"keep\": \"all\", \"type\": \"clear_thinking_20251015\"}]}": 79
+  },
+  "output_config": {
+   "{\"effort\": \"medium\"}": 79,
+   "{\"format\": {\"schema\": {\"additionalProperties\": false, \"properties\": {\"title\": {\"type\": \"string\"}}, \"required\": [\"title\"], \"type\": \"object\"},": 6,
+   "{\"effort\": \"medium\", \"format\": {\"schema\": {\"additionalProperties\": false, \"properties\": {\"title\": {\"type\": \"string\"}}, \"required\": [\"title\"]": 12
+  },
+  "stream": {
+   "true": 97
+  },
+  "temperature": {
+   "1": 6
+  }
+ },
+ "other": {
+  "openai_payload_has_reasoning_effort": 0,
+  "openai_payload_has_thinking_budget": 0,
+  "openai_payload_has_response_format": 0,
+  "openai_payload_has_thinking": 0,
+  "openai_payload_has_output_config": 0,
+  "openai_payload_has_context_management": 0,
+  "openai_user_contains_device_id": 97,
+  "openai_user_contains_session_id": 97,
+  "max_tokens_forwarded_verbatim": 97,
+  "temperature_forwarded": 6,
+  "json_schema_requests": 18,
+  "json_schema_reaching_copilot": 0
+ },
+ "openai_user_len_range": [
+  150,
+  150
+ ]
+}
