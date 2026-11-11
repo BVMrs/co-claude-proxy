@@ -8,6 +8,10 @@ Everything is forwarded unchanged except JSON POST bodies for the message
 endpoints, which are rewritten. Responses (including SSE streams) are relayed
 as they arrive. Every rewritable request is logged with its model and the role
 of its last message, which is the data the handover asks to capture.
+
+One upstream error is rewritten: Copilot's 400 "prompt token count of N exceeds
+the limit of M" becomes Anthropic's "prompt is too long: N tokens > M maximum"
+(see :mod:`copilot_shim.errors`), so Claude Code compacts instead of failing.
 """
 
 from __future__ import annotations
@@ -20,6 +24,7 @@ import sys
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
+from .errors import rewrite_prompt_too_long
 from .rewrite import DEFAULT_PREFILL_OK, MODES, Policy, rewrite
 
 log = logging.getLogger("copilot_shim")
@@ -105,20 +110,31 @@ def make_handler(upstream: str, policy: Policy, timeout: float = 600.0):
                 conn.close()
 
         def _relay(self, resp, path_only):
+            bodyless = self.command == "HEAD" or resp.status in (204, 304)
+            data = rewritten = None
+            if not bodyless and resp.status >= 400:
+                data = resp.read()
+                log.warning("%s upstream %s: %s", path_only, resp.status,
+                            data[:500].decode("utf-8", "replace"))
+                rewritten = rewrite_prompt_too_long(resp.status, data)
+                if rewritten is not None:
+                    data = rewritten
+                    log.info("%s rewrote prompt-token-limit error: %s", path_only, data.decode())
+
             self.send_response(resp.status, resp.reason)
             for k, v in resp.getheaders():
-                if k.lower() not in HOP_BY_HOP:
-                    self.send_header(k, v)
+                if k.lower() in HOP_BY_HOP or (rewritten is not None and k.lower() == "content-type"):
+                    continue
+                self.send_header(k, v)
 
-            if self.command == "HEAD" or resp.status in (204, 304):
+            if bodyless:
                 self.send_header("Content-Length", "0")
                 self.end_headers()
                 return
 
-            if resp.status >= 400:
-                data = resp.read()
-                log.warning("%s upstream %s: %s", path_only, resp.status,
-                            data[:500].decode("utf-8", "replace"))
+            if data is not None:
+                if rewritten is not None:
+                    self.send_header("Content-Type", "application/json")
                 self.send_header("Content-Length", str(len(data)))
                 self.end_headers()
                 self.wfile.write(data)
