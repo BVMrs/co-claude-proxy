@@ -1,0 +1,1517 @@
+[
+ {
+  "case": "pass-opus",
+  "mode": "pass",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "ok.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48415,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "pass-sonnet",
+  "mode": "pass",
+  "cap": 32000,
+  "model": "claude-sonnet-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "ok.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-sonnet-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48156,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "pass-haiku45",
+  "mode": "pass",
+  "cap": 32000,
+  "model": "claude-haiku-4.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "ok.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-haiku-4.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 1,
+    "bytes": 86772,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "pass-long100k",
+  "mode": "pass",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 100000>>",
+    "exit": 0,
+    "secs": 0.7,
+    "stdout": "[part 1: 100000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 100000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48442,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 100000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "pass-long400k",
+  "mode": "pass",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 400000>>",
+    "exit": 0,
+    "secs": 1.0,
+    "stdout": "[part 4: 16000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 400000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48442,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 128000,
+    "stop": "max_tokens",
+    "remaining": 272000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48738,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 128000,
+    "stop": "max_tokens",
+    "remaining": 144000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49034,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 128000,
+    "stop": "max_tokens",
+    "remaining": 16000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49330,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 16000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "clamp32-long30k",
+  "mode": "clamp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 30000>>",
+    "exit": 0,
+    "secs": 1.0,
+    "stdout": "[part 1: 30000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 30000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48445,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 30000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "clamp32-long100k",
+  "mode": "clamp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 100000>>",
+    "exit": 0,
+    "secs": 1.0,
+    "stdout": "[part 4: 4000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 100000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48448,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 68000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48743,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 36000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49038,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 4000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49333,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 4000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "clamp32-long200k",
+  "mode": "clamp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 200000>>",
+    "exit": 1,
+    "secs": 0.9,
+    "stdout": "API Error: Claude's response exceeded the 128000 output token maximum. To configure this behavior, set the CLAUDE_CODE_MAX_OUTPUT_TOKENS environment variable.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 200000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48448,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 168000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48743,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 136000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49038,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 104000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49333,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 72000
+   }
+  ]
+ },
+ {
+  "case": "clamp32-long400k",
+  "mode": "clamp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 400000>>",
+    "exit": 1,
+    "secs": 1.0,
+    "stdout": "API Error: Claude's response exceeded the 128000 output token maximum. To configure this behavior, set the CLAUDE_CODE_MAX_OUTPUT_TOKENS environment variable.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 400000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48448,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 368000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48743,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 336000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49038,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 304000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49333,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 272000
+   }
+  ]
+ },
+ {
+  "case": "clamp64-long200k",
+  "mode": "clamp",
+  "cap": 64000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 200000>>",
+    "exit": 0,
+    "secs": 0.9,
+    "stdout": "[part 4: 8000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 200000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48448,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 64000,
+    "stop": "max_tokens",
+    "remaining": 136000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48743,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 64000,
+    "stop": "max_tokens",
+    "remaining": 72000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49038,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 64000,
+    "stop": "max_tokens",
+    "remaining": 8000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49333,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 8000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "clamp32-env-long100k",
+  "mode": "clamp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {
+   "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "32000"
+  },
+  "turns": [
+   {
+    "prompt": "write <<LONG 100000>>",
+    "exit": 0,
+    "secs": 1.0,
+    "stdout": "[part 4: 4000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 100000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48455,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 68000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48750,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 36000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49045,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 4000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49340,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 4000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "clamp32-env-long200k",
+  "mode": "clamp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {
+   "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "32000"
+  },
+  "turns": [
+   {
+    "prompt": "write <<LONG 200000>>",
+    "exit": 1,
+    "secs": 0.9,
+    "stdout": "API Error: Claude's response exceeded the 32000 output token maximum. To configure this behavior, set the CLAUDE_CODE_MAX_OUTPUT_TOKENS environment variable.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 200000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48455,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 168000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48750,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 136000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49045,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 104000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49340,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 72000
+   }
+  ]
+ },
+ {
+  "case": "reject-cp32",
+  "mode": "reject-cp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 1,
+    "secs": 1.2,
+    "stdout": "API Error: 400 {\"error\": {\"message\": \"max_tokens is too large: 128000. This model supports at most 32000 completion tokens.\", \"code\": \"invalid_request_body\"}}\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48419,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48419,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48399,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86846,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86846,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86826,
+    "status": 400
+   }
+  ]
+ },
+ {
+  "case": "reject-cp64",
+  "mode": "reject-cp",
+  "cap": 64000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 1,
+    "secs": 1.1,
+    "stdout": "API Error: 400 {\"error\": {\"message\": \"max_tokens is too large: 128000. This model supports at most 64000 completion tokens.\", \"code\": \"invalid_request_body\"}}\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48419,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48419,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48399,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86846,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86846,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86826,
+    "status": 400
+   }
+  ]
+ },
+ {
+  "case": "reject-max32",
+  "mode": "reject-max",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 1,
+    "secs": 1.2,
+    "stdout": "API Error: 400 max_tokens: 128000 > 32000, which is the maximum allowed number of output tokens for this model\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48421,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48421,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48401,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86848,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86848,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 86828,
+    "status": 400
+   }
+  ]
+ },
+ {
+  "case": "reject-ctx32",
+  "mode": "reject-ctx",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 0,
+    "secs": 0.9,
+    "stdout": "ok.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48421,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 31000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48420,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "reject-ctx32-long100k",
+  "mode": "reject-ctx",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 100000>>",
+    "exit": 0,
+    "secs": 1.3,
+    "stdout": "[part 4: 7000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 100000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48458,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 31000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48457,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 31000,
+    "stop": "max_tokens",
+    "remaining": 69000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48753,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 31000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48752,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 31000,
+    "stop": "max_tokens",
+    "remaining": 38000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49048,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 31000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49047,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 31000,
+    "stop": "max_tokens",
+    "remaining": 7000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 128000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49343,
+    "status": 400
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 31000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49342,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 7000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "reject-cp32-env",
+  "mode": "reject-cp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {
+   "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "32000"
+  },
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 0,
+    "secs": 0.9,
+    "stdout": "ok.\n"
+   },
+   {
+    "prompt": "second turn",
+    "exit": 0,
+    "secs": 0.7,
+    "stdout": "ok.\n"
+   },
+   {
+    "prompt": "/compact",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "\n"
+   },
+   {
+    "prompt": "after compact",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "ok.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48426,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   },
+   {
+    "turn": "second turn"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48528,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   },
+   {
+    "turn": "/compact"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 55034,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 55430,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   },
+   {
+    "turn": "after compact"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 5,
+    "bytes": 50256,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "reject-cp32-env-long100k",
+  "mode": "reject-cp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {
+   "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "32000"
+  },
+  "turns": [
+   {
+    "prompt": "write <<LONG 100000>>",
+    "exit": 0,
+    "secs": 1.1,
+    "stdout": "[part 4: 4000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 100000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48463,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 68000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 4,
+    "bytes": 48758,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 36000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 6,
+    "bytes": 49053,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 4000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 8,
+    "bytes": 49348,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 4000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "reject-cp32-env-sonnet",
+  "mode": "reject-cp",
+  "cap": 32000,
+  "model": "claude-sonnet-5.5",
+  "env": {
+   "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "32000"
+  },
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 0,
+    "secs": 0.9,
+    "stdout": "ok.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-sonnet-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 2,
+    "bytes": 48177,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "shim-reject-cp32",
+  "mode": "reject-cp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "ok.\n"
+   },
+   {
+    "prompt": "second turn",
+    "exit": 0,
+    "secs": 0.7,
+    "stdout": "ok.\n"
+   },
+   {
+    "prompt": "/compact",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "\n"
+   },
+   {
+    "prompt": "after compact",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "ok.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 1,
+    "bytes": 49214,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   },
+   {
+    "turn": "second turn"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 3,
+    "bytes": 49355,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   },
+   {
+    "turn": "/compact"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 3,
+    "bytes": 55877,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 3,
+    "bytes": 56273,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   },
+   {
+    "turn": "after compact"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 3,
+    "bytes": 51041,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "shim-reject-cp32-long100k",
+  "mode": "reject-cp",
+  "cap": 32000,
+  "model": "claude-opus-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "write <<LONG 100000>>",
+    "exit": 0,
+    "secs": 1.0,
+    "stdout": "[part 4: 4000 tokens] DONE\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "write <<LONG 100000>>"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 1,
+    "bytes": 49251,
+    "kind": "long-start",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 68000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 3,
+    "bytes": 49588,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 36000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 5,
+    "bytes": 49897,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 32000,
+    "stop": "max_tokens",
+    "remaining": 4000
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-opus-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 7,
+    "bytes": 50206,
+    "kind": "continue",
+    "nudge": "Output token limit hit",
+    "status": 200,
+    "n_out": 4000,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ },
+ {
+  "case": "shim-reject-cp32-sonnet",
+  "mode": "reject-cp",
+  "cap": 32000,
+  "model": "claude-sonnet-5.5",
+  "env": {},
+  "turns": [
+   {
+    "prompt": "hi",
+    "exit": 0,
+    "secs": 0.8,
+    "stdout": "ok.\n"
+   }
+  ],
+  "requests": [
+   {
+    "turn": "hi"
+   },
+   {
+    "path": "/v1/messages",
+    "model": "claude-sonnet-5.5",
+    "max_tokens": 32000,
+    "main": true,
+    "n_messages": 1,
+    "bytes": 48965,
+    "kind": "short",
+    "status": 200,
+    "n_out": 20,
+    "stop": "end_turn",
+    "remaining": 0
+   }
+  ]
+ }
+]
