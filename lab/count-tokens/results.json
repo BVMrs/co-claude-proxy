@@ -1,0 +1,1724 @@
+[
+ {
+  "id": "read-code-20000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 20000,
+  "backend": "copilot",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 23636,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-20000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 20000,
+  "backend": "miss",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 23636,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-20000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 20000,
+  "backend": "none",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 23636,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-30000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 30000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 31416,
+    "status": 200,
+    "answer": "{\"input_tokens\":7389}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 35558,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-30000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 30000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 31416,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 35558,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-30000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 30000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 31416,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 35558,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-50000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 50000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 52156,
+    "status": 200,
+    "answer": "{\"input_tokens\":12391}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 59238,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-50000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 50000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 52156,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 59238,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-50000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 50000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 52156,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 59238,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-70000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 70000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 72767,
+    "status": 200,
+    "answer": "{\"input_tokens\":17586}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 82283,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-70000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 70000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 72767,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 82283,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-70000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 70000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 72767,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 82283,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-90000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 90000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 93164,
+    "status": 200,
+    "answer": "{\"input_tokens\":22747}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 104198,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-90000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 90000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 93164,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 104198,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-90000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 90000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 93164,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 104198,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-110000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 110000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 113569,
+    "status": 200,
+    "answer": "{\"input_tokens\":27755}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 80299,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-110000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 110000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 113569,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 126193,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-110000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 110000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 113569,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 81987,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-150000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 150000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 154395,
+    "status": 200,
+    "answer": "{\"input_tokens\":37844}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 69875,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-150000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 150000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 154395,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 170243,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-150000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 150000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 154395,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 70518,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-250000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 250000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 256630,
+    "status": 200,
+    "answer": "{\"input_tokens\":65098}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 60486,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-250000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 250000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 256630,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 281378,
+  "result_images": 0
+ },
+ {
+  "id": "read-code-250000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_code.txt",
+  "chars": 250000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 256630,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 62879,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-20000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 20000,
+  "backend": "copilot",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 20624,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-20000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 20000,
+  "backend": "miss",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 20624,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-20000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 20000,
+  "backend": "none",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 20624,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-30000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 30000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 32597,
+    "status": 200,
+    "answer": "{\"input_tokens\":16416}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 30928,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-30000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 30000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 32597,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 30928,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-30000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 30000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 32597,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 30928,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-50000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 50000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 54447,
+    "status": 200,
+    "answer": "{\"input_tokens\":28011}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 37696,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-50000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 50000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 54447,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 51584,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-50000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 50000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 54447,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 51584,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-70000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 70000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 76239,
+    "status": 200,
+    "answer": "{\"input_tokens\":39156}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 37091,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-70000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 70000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 76239,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 72208,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-70000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 70000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 76239,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 72208,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-90000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 90000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 97943,
+    "status": 200,
+    "answer": "{\"input_tokens\":51098}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 37492,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-90000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 90000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 97943,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 92960,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-90000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 90000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 97943,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 92960,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-110000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 110000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 119725,
+    "status": 200,
+    "answer": "{\"input_tokens\":62535}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 37278,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-110000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 110000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 119725,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 113616,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-110000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 110000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 119725,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 87092,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-150000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 150000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 163048,
+    "status": 200,
+    "answer": "{\"input_tokens\":84884}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 37921,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-150000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 150000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 163048,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 155323,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-150000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 150000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 163048,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 88173,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-250000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 250000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 271939,
+    "status": 200,
+    "answer": "{\"input_tokens\":142008}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 37696,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-250000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 250000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 271939,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 259608,
+  "result_images": 0
+ },
+ {
+  "id": "read-json-250000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_json.txt",
+  "chars": 250000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 271939,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 88173,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-20000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 20000,
+  "backend": "copilot",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 22788,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-20000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 20000,
+  "backend": "miss",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 22788,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-20000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 20000,
+  "backend": "none",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 22788,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-30000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 30000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 31498,
+    "status": 200,
+    "answer": "{\"input_tokens\":8871}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 34183,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-30000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 30000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 31498,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 34183,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-30000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 30000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 31498,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 34183,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-50000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 50000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 52444,
+    "status": 200,
+    "answer": "{\"input_tokens\":14769}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 56048,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-50000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 50000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 52444,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 56048,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-50000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 50000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 52444,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 56048,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-70000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 70000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 73787,
+    "status": 200,
+    "answer": "{\"input_tokens\":21019}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 78713,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-70000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 70000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 73787,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 78713,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-70000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 70000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 73787,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 78713,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-90000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 90000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 94937,
+    "status": 200,
+    "answer": "{\"input_tokens\":26999}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 75641,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-90000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 90000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 94937,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 100803,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-90000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 90000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 94937,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 100803,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-110000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 110000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 116267,
+    "status": 200,
+    "answer": "{\"input_tokens\":33098}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 75005,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-110000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 110000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 116267,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 123258,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-110000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 110000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 116267,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 94743,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-150000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 150000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 158072,
+    "status": 200,
+    "answer": "{\"input_tokens\":45454}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 76560,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-150000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 150000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 158072,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 169398,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-150000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 150000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 158072,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 97963,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-250000-copilot",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 250000,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 261402,
+    "status": 200,
+    "answer": "{\"input_tokens\":76422}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 77108,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-250000-miss",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 250000,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 261402,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 283783,
+  "result_images": 0
+ },
+ {
+  "id": "read-markdown-250000-none",
+  "kind": "read",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 250000,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 261402,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 100451,
+  "result_images": 0
+ },
+ {
+  "id": "mcp-60000-0x0-copilot",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 60000,
+  "images": 0,
+  "px": 0,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 63064,
+    "status": 200,
+    "answer": "{\"input_tokens\":18030}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 2434,
+  "result_images": 0
+ },
+ {
+  "id": "mcp-60000-0x0-miss",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 60000,
+  "images": 0,
+  "px": 0,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 63064,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 2428,
+  "result_images": 0
+ },
+ {
+  "id": "mcp-60000-0x0-none",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 60000,
+  "images": 0,
+  "px": 0,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 63064,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 2428,
+  "result_images": 0
+ },
+ {
+  "id": "mcp-90000-0x0-copilot",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 90000,
+  "images": 0,
+  "px": 0,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 94962,
+    "status": 200,
+    "answer": "{\"input_tokens\":26999}"
+   }
+  ],
+  "outcome": "rejected",
+  "result_chars": 1693,
+  "result_images": 0
+ },
+ {
+  "id": "mcp-90000-0x0-miss",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 90000,
+  "images": 0,
+  "px": 0,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 94962,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 2428,
+  "result_images": 0
+ },
+ {
+  "id": "mcp-90000-0x0-none",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 90000,
+  "images": 0,
+  "px": 0,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 94962,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 2428,
+  "result_images": 0
+ },
+ {
+  "id": "mcp-40000-1x300-copilot",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 40000,
+  "images": 1,
+  "px": 300,
+  "backend": "copilot",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 40365,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-40000-1x300-miss",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 40000,
+  "images": 1,
+  "px": 300,
+  "backend": "miss",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 40359,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-40000-1x300-none",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 40000,
+  "images": 1,
+  "px": 300,
+  "backend": "none",
+  "counts": [],
+  "outcome": "accepted",
+  "result_chars": 40359,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-55000-1x300-copilot",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 55000,
+  "images": 1,
+  "px": 300,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 418883,
+    "status": 200,
+    "answer": "{\"input_tokens\":299683}"
+   },
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 418883,
+    "status": 200,
+    "answer": "{\"input_tokens\":299683}"
+   }
+  ],
+  "outcome": "truncated",
+  "result_chars": 55679,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-55000-1x300-miss",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 55000,
+  "images": 1,
+  "px": 300,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 418877,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 55359,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-55000-1x300-none",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 55000,
+  "images": 1,
+  "px": 300,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 418877,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 55359,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-20000-8x200-copilot",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 20000,
+  "images": 8,
+  "px": 200,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 1307975,
+    "status": 200,
+    "answer": "{\"input_tokens\":1015495}"
+   },
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 1307975,
+    "status": 200,
+    "answer": "{\"input_tokens\":1015495}"
+   }
+  ],
+  "outcome": "truncated",
+  "result_chars": 23234,
+  "result_images": 8
+ },
+ {
+  "id": "mcp-20000-8x200-miss",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 20000,
+  "images": 8,
+  "px": 200,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 1307927,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 22872,
+  "result_images": 8
+ },
+ {
+  "id": "mcp-20000-8x200-none",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 20000,
+  "images": 8,
+  "px": 200,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 1307927,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 22872,
+  "result_images": 8
+ },
+ {
+  "id": "mcp-2000-9x200-copilot",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 2000,
+  "images": 9,
+  "px": 200,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 1450029,
+    "status": 200,
+    "answer": "{\"input_tokens\":1136367}"
+   },
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 1450029,
+    "status": 200,
+    "answer": "{\"input_tokens\":1136367}"
+   }
+  ],
+  "outcome": "truncated",
+  "result_chars": 5581,
+  "result_images": 9
+ },
+ {
+  "id": "mcp-2000-9x200-miss",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 2000,
+  "images": 9,
+  "px": 200,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 1449975,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 5213,
+  "result_images": 9
+ },
+ {
+  "id": "mcp-2000-9x200-none",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 2000,
+  "images": 9,
+  "px": 200,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 1449975,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 5213,
+  "result_images": 9
+ },
+ {
+  "id": "mcp-55000-1x120-copilot",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 55000,
+  "images": 1,
+  "px": 120,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 116147,
+    "status": 200,
+    "answer": "{\"input_tokens\":62084}"
+   },
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 116147,
+    "status": 200,
+    "answer": "{\"input_tokens\":62084}"
+   }
+  ],
+  "outcome": "truncated",
+  "result_chars": 55679,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-55000-1x120-miss",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 55000,
+  "images": 1,
+  "px": 120,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 116141,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 55359,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-55000-1x120-none",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 55000,
+  "images": 1,
+  "px": 120,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 116141,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 55359,
+  "result_images": 1
+ },
+ {
+  "id": "mcp-40000-3x200-copilot",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 40000,
+  "images": 3,
+  "px": 200,
+  "backend": "copilot",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 524708,
+    "status": 200,
+    "answer": "{\"input_tokens\":390203}"
+   },
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 524708,
+    "status": 200,
+    "answer": "{\"input_tokens\":390203}"
+   }
+  ],
+  "outcome": "truncated",
+  "result_chars": 41409,
+  "result_images": 3
+ },
+ {
+  "id": "mcp-40000-3x200-miss",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 40000,
+  "images": 3,
+  "px": 200,
+  "backend": "miss",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 524690,
+    "status": 200,
+    "answer": "{\"input_tokens\":1}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 41077,
+  "result_images": 3
+ },
+ {
+  "id": "mcp-40000-3x200-none",
+  "kind": "mcp",
+  "corpus": "/var/lib/agent/workspace/co-claude-proxy/.worktrees/agents_lab/.agent-work/count-tokens/corpus_markdown.txt",
+  "chars": 40000,
+  "images": 3,
+  "px": 200,
+  "backend": "none",
+  "counts": [
+   {
+    "model": "claude-opus-5.5",
+    "bytes": 524690,
+    "status": 404,
+    "answer": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}"
+   }
+  ],
+  "outcome": "accepted",
+  "result_chars": 41077,
+  "result_images": 3
+ }
+]

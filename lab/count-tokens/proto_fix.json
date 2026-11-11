@@ -1,0 +1,58 @@
+[
+ {
+  "case": "40000c+1x300px",
+  "copilot_api": 294830,
+  "fixed": 11843,
+  "text_only": 11719,
+  "banner_before": true,
+  "banner_after": false
+ },
+ {
+  "case": "55000c+1x300px",
+  "copilot_api": 299523,
+  "fixed": 16535,
+  "text_only": 16412,
+  "banner_before": true,
+  "banner_after": false
+ },
+ {
+  "case": "20000c+8x200px",
+  "copilot_api": 1014294,
+  "fixed": 6419,
+  "text_only": 5966,
+  "banner_before": true,
+  "banner_after": false
+ },
+ {
+  "case": "2000c+9x200px",
+  "copilot_api": 1134960,
+  "fixed": 1118,
+  "text_only": 608,
+  "banner_before": true,
+  "banner_after": false
+ },
+ {
+  "case": "55000c+1x120px",
+  "copilot_api": 61930,
+  "fixed": 16434,
+  "text_only": 16412,
+  "banner_before": true,
+  "banner_after": false
+ },
+ {
+  "case": "40000c+3x200px",
+  "copilot_api": 389755,
+  "fixed": 11889,
+  "text_only": 11719,
+  "banner_before": true,
+  "banner_after": false
+ },
+ {
+  "case": "90000c+0x0px",
+  "copilot_api": 26999,
+  "fixed": 26999,
+  "text_only": 26999,
+  "banner_before": true,
+  "banner_after": true
+ }
+]

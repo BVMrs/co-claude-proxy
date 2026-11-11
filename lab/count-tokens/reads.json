@@ -1,0 +1,650 @@
+[
+ {
+  "id": "read-code-20000-copilot",
+  "file_chars": 20000,
+  "file_lines": 936,
+  "lines_out": 936,
+  "chars_out": 23636,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-code-20000-miss",
+  "file_chars": 20000,
+  "file_lines": 936,
+  "lines_out": 936,
+  "chars_out": 23636,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-code-20000-none",
+  "file_chars": 20000,
+  "file_lines": 936,
+  "lines_out": 936,
+  "chars_out": 23636,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-code-30000-copilot",
+  "file_chars": 30000,
+  "file_lines": 1333,
+  "lines_out": 1333,
+  "chars_out": 35558,
+  "count": "{\"input_tokens\":7389}",
+  "notice": []
+ },
+ {
+  "id": "read-code-30000-miss",
+  "file_chars": 30000,
+  "file_lines": 1333,
+  "lines_out": 1333,
+  "chars_out": 35558,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-code-30000-none",
+  "file_chars": 30000,
+  "file_lines": 1333,
+  "lines_out": 1333,
+  "chars_out": 35558,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-code-50000-copilot",
+  "file_chars": 50000,
+  "file_lines": 2069,
+  "lines_out": 2069,
+  "chars_out": 59238,
+  "count": "{\"input_tokens\":12391}",
+  "notice": []
+ },
+ {
+  "id": "read-code-50000-miss",
+  "file_chars": 50000,
+  "file_lines": 2069,
+  "lines_out": 2069,
+  "chars_out": 59238,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-code-50000-none",
+  "file_chars": 50000,
+  "file_lines": 2069,
+  "lines_out": 2069,
+  "chars_out": 59238,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-code-70000-copilot",
+  "file_chars": 70000,
+  "file_lines": 2678,
+  "lines_out": 2678,
+  "chars_out": 82283,
+  "count": "{\"input_tokens\":17586}",
+  "notice": []
+ },
+ {
+  "id": "read-code-70000-miss",
+  "file_chars": 70000,
+  "file_lines": 2678,
+  "lines_out": 2678,
+  "chars_out": 82283,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-code-70000-none",
+  "file_chars": 70000,
+  "file_lines": 2678,
+  "lines_out": 2678,
+  "chars_out": 82283,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-code-90000-copilot",
+  "file_chars": 90000,
+  "file_lines": 3061,
+  "lines_out": 3061,
+  "chars_out": 104198,
+  "count": "{\"input_tokens\":22747}",
+  "notice": []
+ },
+ {
+  "id": "read-code-90000-miss",
+  "file_chars": 90000,
+  "file_lines": 3061,
+  "lines_out": 3061,
+  "chars_out": 104198,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-code-90000-none",
+  "file_chars": 90000,
+  "file_lines": 3061,
+  "lines_out": 3061,
+  "chars_out": 104198,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-code-110000-copilot",
+  "file_chars": 110000,
+  "file_lines": 3460,
+  "lines_out": 2649,
+  "chars_out": 80299,
+  "count": "{\"input_tokens\":27755}",
+  "notice": []
+ },
+ {
+  "id": "read-code-110000-miss",
+  "file_chars": 110000,
+  "file_lines": 3460,
+  "lines_out": 3460,
+  "chars_out": 126193,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-code-110000-none",
+  "file_chars": 110000,
+  "file_lines": 3460,
+  "lines_out": 2673,
+  "chars_out": 81987,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-code-150000-copilot",
+  "file_chars": 150000,
+  "file_lines": 4270,
+  "lines_out": 2397,
+  "chars_out": 69875,
+  "count": "{\"input_tokens\":37844}",
+  "notice": []
+ },
+ {
+  "id": "read-code-150000-miss",
+  "file_chars": 150000,
+  "file_lines": 4270,
+  "lines_out": 4270,
+  "chars_out": 170243,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-code-150000-none",
+  "file_chars": 150000,
+  "file_lines": 4270,
+  "lines_out": 2419,
+  "chars_out": 70518,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-code-250000-copilot",
+  "file_chars": 250000,
+  "file_lines": 6497,
+  "lines_out": 2120,
+  "chars_out": 60486,
+  "count": "{\"input_tokens\":65098}",
+  "notice": []
+ },
+ {
+  "id": "read-code-250000-miss",
+  "file_chars": 250000,
+  "file_lines": 6497,
+  "lines_out": 6497,
+  "chars_out": 281378,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-code-250000-none",
+  "file_chars": 250000,
+  "file_lines": 6497,
+  "lines_out": 2208,
+  "chars_out": 62879,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-json-20000-copilot",
+  "file_chars": 20000,
+  "file_lines": 183,
+  "lines_out": 183,
+  "chars_out": 20624,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-json-20000-miss",
+  "file_chars": 20000,
+  "file_lines": 183,
+  "lines_out": 183,
+  "chars_out": 20624,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-json-20000-none",
+  "file_chars": 20000,
+  "file_lines": 183,
+  "lines_out": 183,
+  "chars_out": 20624,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-json-30000-copilot",
+  "file_chars": 30000,
+  "file_lines": 259,
+  "lines_out": 259,
+  "chars_out": 30928,
+  "count": "{\"input_tokens\":16416}",
+  "notice": []
+ },
+ {
+  "id": "read-json-30000-miss",
+  "file_chars": 30000,
+  "file_lines": 259,
+  "lines_out": 259,
+  "chars_out": 30928,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-json-30000-none",
+  "file_chars": 30000,
+  "file_lines": 259,
+  "lines_out": 259,
+  "chars_out": 30928,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-json-50000-copilot",
+  "file_chars": 50000,
+  "file_lines": 423,
+  "lines_out": 320,
+  "chars_out": 37696,
+  "count": "{\"input_tokens\":28011}",
+  "notice": []
+ },
+ {
+  "id": "read-json-50000-miss",
+  "file_chars": 50000,
+  "file_lines": 423,
+  "lines_out": 423,
+  "chars_out": 51584,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-json-50000-none",
+  "file_chars": 50000,
+  "file_lines": 423,
+  "lines_out": 423,
+  "chars_out": 51584,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-json-70000-copilot",
+  "file_chars": 70000,
+  "file_lines": 579,
+  "lines_out": 314,
+  "chars_out": 37091,
+  "count": "{\"input_tokens\":39156}",
+  "notice": []
+ },
+ {
+  "id": "read-json-70000-miss",
+  "file_chars": 70000,
+  "file_lines": 579,
+  "lines_out": 579,
+  "chars_out": 72208,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-json-70000-none",
+  "file_chars": 70000,
+  "file_lines": 579,
+  "lines_out": 579,
+  "chars_out": 72208,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-json-90000-copilot",
+  "file_chars": 90000,
+  "file_lines": 767,
+  "lines_out": 318,
+  "chars_out": 37492,
+  "count": "{\"input_tokens\":51098}",
+  "notice": []
+ },
+ {
+  "id": "read-json-90000-miss",
+  "file_chars": 90000,
+  "file_lines": 767,
+  "lines_out": 767,
+  "chars_out": 92960,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-json-90000-none",
+  "file_chars": 90000,
+  "file_lines": 767,
+  "lines_out": 767,
+  "chars_out": 92960,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-json-110000-copilot",
+  "file_chars": 110000,
+  "file_lines": 931,
+  "lines_out": 316,
+  "chars_out": 37278,
+  "count": "{\"input_tokens\":62535}",
+  "notice": []
+ },
+ {
+  "id": "read-json-110000-miss",
+  "file_chars": 110000,
+  "file_lines": 931,
+  "lines_out": 931,
+  "chars_out": 113616,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-json-110000-none",
+  "file_chars": 110000,
+  "file_lines": 931,
+  "lines_out": 719,
+  "chars_out": 87092,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-json-150000-copilot",
+  "file_chars": 150000,
+  "file_lines": 1286,
+  "lines_out": 321,
+  "chars_out": 37921,
+  "count": "{\"input_tokens\":84884}",
+  "notice": []
+ },
+ {
+  "id": "read-json-150000-miss",
+  "file_chars": 150000,
+  "file_lines": 1286,
+  "lines_out": 1286,
+  "chars_out": 155323,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-json-150000-none",
+  "file_chars": 150000,
+  "file_lines": 1286,
+  "lines_out": 728,
+  "chars_out": 88173,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-json-250000-copilot",
+  "file_chars": 250000,
+  "file_lines": 2143,
+  "lines_out": 320,
+  "chars_out": 37696,
+  "count": "{\"input_tokens\":142008}",
+  "notice": []
+ },
+ {
+  "id": "read-json-250000-miss",
+  "file_chars": 250000,
+  "file_lines": 2143,
+  "lines_out": 2143,
+  "chars_out": 259608,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-json-250000-none",
+  "file_chars": 250000,
+  "file_lines": 2143,
+  "lines_out": 728,
+  "chars_out": 88173,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-20000-copilot",
+  "file_chars": 20000,
+  "file_lines": 724,
+  "lines_out": 724,
+  "chars_out": 22788,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-markdown-20000-miss",
+  "file_chars": 20000,
+  "file_lines": 724,
+  "lines_out": 724,
+  "chars_out": 22788,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-markdown-20000-none",
+  "file_chars": 20000,
+  "file_lines": 724,
+  "lines_out": 724,
+  "chars_out": 22788,
+  "count": null,
+  "notice": []
+ },
+ {
+  "id": "read-markdown-30000-copilot",
+  "file_chars": 30000,
+  "file_lines": 1058,
+  "lines_out": 1058,
+  "chars_out": 34183,
+  "count": "{\"input_tokens\":8871}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-30000-miss",
+  "file_chars": 30000,
+  "file_lines": 1058,
+  "lines_out": 1058,
+  "chars_out": 34183,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-30000-none",
+  "file_chars": 30000,
+  "file_lines": 1058,
+  "lines_out": 1058,
+  "chars_out": 34183,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-50000-copilot",
+  "file_chars": 50000,
+  "file_lines": 1431,
+  "lines_out": 1431,
+  "chars_out": 56048,
+  "count": "{\"input_tokens\":14769}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-50000-miss",
+  "file_chars": 50000,
+  "file_lines": 1431,
+  "lines_out": 1431,
+  "chars_out": 56048,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-50000-none",
+  "file_chars": 50000,
+  "file_lines": 1431,
+  "lines_out": 1431,
+  "chars_out": 56048,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-70000-copilot",
+  "file_chars": 70000,
+  "file_lines": 1964,
+  "lines_out": 1964,
+  "chars_out": 78713,
+  "count": "{\"input_tokens\":21019}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-70000-miss",
+  "file_chars": 70000,
+  "file_lines": 1964,
+  "lines_out": 1964,
+  "chars_out": 78713,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-70000-none",
+  "file_chars": 70000,
+  "file_lines": 1964,
+  "lines_out": 1964,
+  "chars_out": 78713,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-90000-copilot",
+  "file_chars": 90000,
+  "file_lines": 2382,
+  "lines_out": 1874,
+  "chars_out": 75641,
+  "count": "{\"input_tokens\":26999}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-90000-miss",
+  "file_chars": 90000,
+  "file_lines": 2382,
+  "lines_out": 2382,
+  "chars_out": 100803,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-90000-none",
+  "file_chars": 90000,
+  "file_lines": 2382,
+  "lines_out": 2382,
+  "chars_out": 100803,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-110000-copilot",
+  "file_chars": 110000,
+  "file_lines": 2873,
+  "lines_out": 1844,
+  "chars_out": 75005,
+  "count": "{\"input_tokens\":33098}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-110000-miss",
+  "file_chars": 110000,
+  "file_lines": 2873,
+  "lines_out": 2873,
+  "chars_out": 123258,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-110000-none",
+  "file_chars": 110000,
+  "file_lines": 2873,
+  "lines_out": 2219,
+  "chars_out": 94743,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-150000-copilot",
+  "file_chars": 150000,
+  "file_lines": 4101,
+  "lines_out": 1917,
+  "chars_out": 76560,
+  "count": "{\"input_tokens\":45454}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-150000-miss",
+  "file_chars": 150000,
+  "file_lines": 4101,
+  "lines_out": 4101,
+  "chars_out": 169398,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-150000-none",
+  "file_chars": 150000,
+  "file_lines": 4101,
+  "lines_out": 2323,
+  "chars_out": 97963,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-250000-copilot",
+  "file_chars": 250000,
+  "file_lines": 6978,
+  "lines_out": 1940,
+  "chars_out": 77108,
+  "count": "{\"input_tokens\":76422}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-250000-miss",
+  "file_chars": 250000,
+  "file_lines": 6978,
+  "lines_out": 6978,
+  "chars_out": 283783,
+  "count": "{\"input_tokens\":1}",
+  "notice": []
+ },
+ {
+  "id": "read-markdown-250000-none",
+  "file_chars": 250000,
+  "file_lines": 6978,
+  "lines_out": 2372,
+  "chars_out": 100451,
+  "count": "{\"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"no route\"}}",
+  "notice": []
+ }
+]
