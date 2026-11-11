@@ -7,7 +7,10 @@ Tools for running Claude Code on a GitHub Copilot subscription through
   copilot-api. Claude 4.6+ models behind Copilot answer a request ending in an
   assistant message with `400: This model does not support assistant message prefill`.
   The shim strips or rewrites that trailing message, and logs the model and
-  last-message role of every request.
+  last-message role of every request. It also turns Copilot's
+  `prompt token count of N exceeds the limit of M` 400 into Anthropic's
+  `prompt is too long: N tokens > M maximum`, so Claude Code compacts instead of
+  failing every later turn.
 - `copilot_shim.probe`: lists the valid model IDs and probes which models accept
   prefill.
 
