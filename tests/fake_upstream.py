@@ -4,6 +4,7 @@
 * A model not in MODELS gets ``400 model_not_supported``.
 * A model not in PREFILL_OK whose last message is from the assistant gets
   ``400 This model does not support assistant message prefill``.
+* A model in ``canned`` gets that ``(status, raw body bytes[, content type])`` verbatim.
 * Otherwise 200: JSON, or an SSE stream when ``stream`` is true.
 """
 
@@ -28,9 +29,10 @@ SSE_EVENTS = [
 
 
 class FakeUpstream:
-    def __init__(self, broken_models=()):
+    def __init__(self, broken_models=(), canned=None):
         self.received: list[tuple[str, str, dict | None, dict]] = []
         self.broken_models = set(broken_models)
+        self.canned: dict[str, tuple] = dict(canned or {})
         outer = self
 
         class H(BaseHTTPRequestHandler):
@@ -58,6 +60,14 @@ class FakeUpstream:
                 body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
                 outer.received.append(("POST", self.path, body, dict(self.headers)))
                 model = body.get("model")
+                if model in outer.canned:
+                    status, raw, *ctype = outer.canned[model]
+                    self.send_response(status)
+                    self.send_header("Content-Type", ctype[0] if ctype else "application/json")
+                    self.send_header("Content-Length", str(len(raw)))
+                    self.end_headers()
+                    self.wfile.write(raw)
+                    return
                 if model in outer.broken_models:
                     self._json(500, {"error": {"message": "boom"}})
                     return

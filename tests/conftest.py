@@ -18,8 +18,8 @@ FIXTURES = json.loads((ROOT / "tests" / "fixtures" / "prefill_requests.json").re
 
 
 @pytest.fixture
-def upstream():
-    with FakeUpstream() as up:
+def upstream(request):
+    with FakeUpstream(**getattr(request, "param", {})) as up:
         yield up
 
 
