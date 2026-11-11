@@ -1,0 +1,17 @@
+cfg  reqs fail exit  wall_s  gaps between requests (s)  | output
+A      11   11    1  178.34  [0.5, 1.1, 2.4, 4.8, 9.2, 16.7, 37.6, 34.4, 32.5, 35.0] ['claude-opus-5.5'] | API Error: Request rejected (429) · {"error": {"message": "Sorry, you've exceeded your 5 hour session limits. Please wait 5 hours 52 minutes before trying again.", "code": "user_global_rate_limited:pro_plus"}}
+B       1    1    1    4.42  [] ['claude-opus-5.5'] | API Error: Request rejected (429) · {"error": {"message": "Sorry, you've exceeded your 5 hour session limits. Please wait 5 hours 52 minutes before trying again.", "code": "user_global_rate_limited:pro_plus"}}
+C      11   11    1  329.66  [30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 34.7, 34.0, 37.2, 39.5] ['claude-opus-5.5'] | API Error: Request rejected (429) · {"error": {"message": "Sorry, you've exceeded your 5 hour session limits. Please wait 5 hours 52 minutes before trying again.", "code": "user_global_rate_limited:pro_plus"}}
+D       7    6    0   36.95  [0.6, 1.1, 2.4, 4.4, 8.2, 16.1] ['claude-opus-5.5'] | ok.
+E       8    7    0   75.32  [0.6, 1.2, 2.3, 4.8, 9.6, 16.6, 35.8] ['claude-opus-5.5'] | ok.
+F       2    1    0   64.47  [60.0] ['claude-opus-5.5'] | ok.
+G      11   11    1  175.94  [0.7, 1.2, 2.1, 4.9, 9.6, 16.7, 33.8, 32.9, 34.5, 35.3] ['claude-opus-5.5'] | API Error: Request rejected (429) · Sorry, you've exceeded your 5 hour session limits. Please wait 5 hours 52 minutes before trying again.
+H      11   11    1  176.54  [0.7, 1.1, 2.4, 4.0, 8.3, 16.9, 34.1, 33.8, 32.1, 39.4] ['claude-opus-5.5'] | API Error: 503 {"error": {"message": "upstream unavailable", "code": "service_unavailable"}}. This is a server-side issue, usually temporary — try again in a moment. If it persists, check your inference gateway (127.0.0.
+I      11   11    1  180.02  [0.6, 1.0, 2.0, 4.8, 9.2, 17.1, 39.9, 34.6, 33.5, 32.9] ['claude-opus-5.5'] | API Error: 500 {"error": {"message": "internal error", "code": "internal"}}. This is a server-side issue, usually temporary — try again in a moment. If it persists, check your inference gateway (127.0.0.1:4212).
+J       4    4    1    8.56  [0.6, 1.3, 2.4] ['claude-opus-5.5'] | API Error: Request rejected (429) · {"error": {"message": "Sorry, you've exceeded your 5 hour session limits. Please wait 5 hours 52 minutes before trying again.", "code": "user_global_rate_limited:pro_plus"}}
+K      11   11    1  183.63  [0.6, 1.2, 2.1, 4.9, 8.2, 18.3, 38.1, 35.3, 38.2, 32.5] ['claude-opus-5.5'] | API Error: Request rejected (429) · {"error": {"message": "Sorry, you've exceeded your 5 hour session limits. Please wait 5 hours 52 minutes before trying again.", "code": "user_global_rate_limited:pro_plus"}}
+M       1    1    1    4.39  [] ['claude-opus-5.5'] | API Error: Request rejected (429) · {"error": {"message": "Sorry, you've exceeded your 5 hour session limits. Please wait 5 hours 52 minutes before trying again.", "code": "user_global_rate_limited:pro_plus"}}
+N       1    1    1    4.41  [] ['claude-opus-5.5'] | API Error: 503 {"error": {"message": "Sorry, you've exceeded your 5 hour session limits. Please wait 5 hours 52 minutes before trying again.", "code": "user_global_rate_limited:pro_plus"}}. This is a server-side issue, u
+k1      2    1    0    4.86  [0.7] ['claude-opus-5.5'] | ok.
+k3      4    3    0    7.84  [0.7, 1.2, 2.2] ['claude-opus-5.5'] | ok.
+k6      7    6    0   37.73  [0.5, 1.2, 2.3, 4.9, 8.1, 16.5] ['claude-opus-5.5'] | ok.
