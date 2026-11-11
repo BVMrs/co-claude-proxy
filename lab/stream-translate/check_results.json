@@ -1,0 +1,210 @@
+{
+ "s01_text_only": {
+  "note": "control: plain text",
+  "events": 8,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [],
+  "stop": "end_turn"
+ },
+ "s02_one_tool": {
+  "note": "control: text + one tool call, args in 3 chunks",
+  "events": 13,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": "tool_use"
+ },
+ "s03_parallel_sequential": {
+  "note": "two tool calls, one after the other (OpenAI's usual order)",
+  "events": 19,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A",
+   "toolu_B"
+  ],
+  "stop": "tool_use"
+ },
+ "s04_parallel_one_chunk": {
+  "note": "both tool calls complete in a single chunk",
+  "events": 13,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A",
+   "toolu_B"
+  ],
+  "stop": "tool_use"
+ },
+ "s05_parallel_interleaved": {
+  "note": "both calls start, then their arguments interleave",
+  "events": 19,
+  "grammar": [
+   "delta to closed block 1"
+  ],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A",
+   "toolu_B"
+  ],
+  "stop": "tool_use"
+ },
+ "s06_tools_in_choice_1_same_chunk": {
+  "note": "text in choices[0], tool call in choices[1] of the same chunk (the shape copilot-api's non-stream path merges)",
+  "events": 6,
+  "grammar": [],
+  "fidelity": [
+   "tool calls lost: toolu_A"
+  ],
+  "tools_got": [],
+  "stop": "tool_use"
+ },
+ "s07_tools_in_choice_1_own_chunks": {
+  "note": "tool call in choice index 1, but alone in its chunks",
+  "events": 10,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": "tool_use"
+ },
+ "s08_finish_then_usage_chunk_with_choice": {
+  "note": "finish_reason repeated in a trailing usage chunk",
+  "events": 15,
+  "grammar": [
+   "message_delta x2",
+   "message_stop x2"
+  ],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": "tool_use"
+ },
+ "s09_no_finish_reason": {
+  "note": "stream ends ([DONE]) without any finish_reason",
+  "events": 10,
+  "grammar": [
+   "message_delta x0",
+   "message_stop x0",
+   "block 1 never stopped"
+  ],
+  "fidelity": [
+   "stop_reason None (want tool_use)"
+  ],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": null
+ },
+ "s10_truncated_upstream": {
+  "note": "upstream connection ends mid tool call, no [DONE]",
+  "events": 7,
+  "grammar": [
+   "message_delta x0",
+   "message_stop x0",
+   "block 1 never stopped"
+  ],
+  "fidelity": [
+   "stop_reason None (want max_tokens)"
+  ],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": null
+ },
+ "s11_length_mid_tool": {
+  "note": "max_tokens hit inside the tool arguments",
+  "events": 10,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": "max_tokens"
+ },
+ "s12_content_filter": {
+  "note": "Copilot content filter cuts the reply",
+  "events": 8,
+  "grammar": [],
+  "fidelity": [
+   "stop_reason end_turn (want refusal or error)"
+  ],
+  "tools_got": [],
+  "stop": "end_turn"
+ },
+ "s13_same_index_two_ids": {
+  "note": "two calls both sent with tool_calls index 0 (distinct ids)",
+  "events": 19,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A",
+   "toolu_B"
+  ],
+  "stop": "tool_use"
+ },
+ "s14_name_after_id": {
+  "note": "id arrives one chunk before the function name",
+  "events": 7,
+  "grammar": [],
+  "fidelity": [
+   "tool calls lost: toolu_A"
+  ],
+  "tools_got": [],
+  "stop": "tool_use"
+ },
+ "s15_id_repeated_each_chunk": {
+  "note": "every argument chunk repeats id and name",
+  "events": 19,
+  "grammar": [],
+  "fidelity": [
+   "toolu_A input wrong: <invalid JSON: '{\"command\": \"echo M'>",
+   "toolu_A input wrong: <invalid JSON: 'ARK_A\", \"descriptio'>",
+   "toolu_A input wrong: <invalid JSON: 'n\": \"print a marker'>",
+   "toolu_A input wrong: <invalid JSON: '\"}'>",
+   "duplicate tool ids"
+  ],
+  "tools_got": [
+   "toolu_A",
+   "toolu_A",
+   "toolu_A",
+   "toolu_A"
+  ],
+  "stop": "tool_use"
+ },
+ "s16_text_after_tool": {
+  "note": "a text delta after the tool call started",
+  "events": 16,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": "tool_use"
+ },
+ "s17_empty_first_chunk_choices": {
+  "note": "Azure-style first chunk with choices: [] (prompt filter results)",
+  "events": 13,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": "tool_use"
+ },
+ "s18_usage_only_after_finish": {
+  "note": "OpenAI include_usage shape: usage in a final choices: [] chunk",
+  "events": 13,
+  "grammar": [],
+  "fidelity": [],
+  "tools_got": [
+   "toolu_A"
+  ],
+  "stop": "tool_use"
+ }
+}

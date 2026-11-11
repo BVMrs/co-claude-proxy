@@ -1,0 +1,35 @@
+{
+ "s01_text_only": [],
+ "s02_one_tool": [],
+ "s03_parallel_sequential": [],
+ "s04_parallel_one_chunk": [],
+ "s05_parallel_interleaved": [
+  "delta to a closed block (interleaved tool arguments)"
+ ],
+ "s06_tools_in_choice_1_same_chunk": [
+  "stop_reason tool_use without a tool_use block (tool call dropped)"
+ ],
+ "s07_tools_in_choice_1_own_chunks": [],
+ "s08_finish_then_usage_chunk_with_choice": [
+  "message_delta after message_stop",
+  "message_stop after message_stop"
+ ],
+ "s09_no_finish_reason": [
+  "stream ended without message_stop"
+ ],
+ "s10_truncated_upstream": [
+  "stream ended without message_stop"
+ ],
+ "s11_length_mid_tool": [],
+ "s12_content_filter": [],
+ "s13_same_index_two_ids": [],
+ "s14_name_after_id": [
+  "stop_reason tool_use without a tool_use block (tool call dropped)"
+ ],
+ "s15_id_repeated_each_chunk": [
+  "duplicate tool_use id (arguments split across blocks)"
+ ],
+ "s16_text_after_tool": [],
+ "s17_empty_first_chunk_choices": [],
+ "s18_usage_only_after_finish": []
+}
