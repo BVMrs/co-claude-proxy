@@ -1,0 +1,14 @@
+case                st shim      cc_overflow cc_numbers             verdict
+canonical          400 rewritten True        ('132456', '128000')   ok
+commas             400 rewritten True        ('132456', '128000')   ok
+code-only          400 rewritten True        None                   ok (no numbers)
+openai-ctx         400 rewritten True        ('132456', '128000')   ok
+anthropic-native   400 pass      True        ('210000', '200000')   ok
+413-canonical      413 pass      True        None                   ok (no numbers)
+unrelated-400      400 pass      False       None                   ok
+echo-user-text     400 pass      False       None                   ok
+echo-tool-desc     400 pass      False       None                   ok
+max-tokens         400 pass      False       None                   ok
+
+# robustness: exceptions escaping rewrite_prompt_too_long, and time (each probe in a child, 60 s limit)
+deep nesting 100k '['               200010 B       4.3 ms  pass
