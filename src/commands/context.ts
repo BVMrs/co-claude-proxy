@@ -1,6 +1,6 @@
 import { CopilotAuth, githubTokenFetcher, staticTokenFetcher } from "../auth/copilot-token.ts";
 import { getGithubLogin, pollForAccessToken, requestDeviceCode } from "../auth/device-flow.ts";
-import { readGithubToken, writeGithubToken } from "../auth/store.ts";
+import { loadOrCreateApiKey, readGithubToken, writeGithubToken } from "../auth/store.ts";
 import type { Config } from "../config.ts";
 import { CopilotClient } from "../copilot/client.ts";
 import { defaultCopilotBaseUrl } from "../copilot/headers.ts";
@@ -14,6 +14,8 @@ export interface Context {
   registry: ModelRegistry;
   bridge: Bridge;
   login?: string;
+  /** Key clients must present to the local server. */
+  apiKey: string;
 }
 
 /** GitHub token from --github-token / COB_GITHUB_TOKEN, then the saved file, else the device flow. */
@@ -53,5 +55,6 @@ export async function buildContext(cfg: Config, opts: { allowLogin: boolean }): 
   });
   const registry = new ModelRegistry(client);
   const bridge = new Bridge(cfg, client, registry);
-  return { auth, client, registry, bridge, login };
+  const apiKey = cfg.apiKey ?? (await loadOrCreateApiKey());
+  return { auth, client, registry, bridge, login, apiKey };
 }

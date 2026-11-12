@@ -32,6 +32,17 @@ export class MockCopilot {
   failNext = new Map<string, number>();
   /** Override the reply text. */
   reply?: (req: ChatRequest) => string;
+  /** Wait this long before answering a chat request. */
+  delayMs = 0;
+  /**
+   * For streaming requests, write these SSE payloads verbatim instead of the
+   * generated stream. "<destroy>" cuts the connection; "<wait:N>" pauses N ms.
+   */
+  rawStream?: string[];
+  /** Answer a chat request with this instead, when it returns something. */
+  override?: (req: ChatRequest) => { status: number; body: unknown } | undefined;
+  /** Status for GET /models (to simulate an outage). */
+  modelsStatus = 200;
   private server = http.createServer((req, res) => void this.handle(req, res));
   url = "";
 
@@ -58,7 +69,9 @@ export class MockCopilot {
     const token = String(req.headers.authorization ?? "").replace(/^Bearer /, "");
     if (!this.validTokens.has(token)) return json(401, { error: { message: "unauthorized: token expired" } });
 
-    if (req.method === "GET" && req.url === "/models") return json(200, { data: MODELS, object: "list" });
+    if (req.method === "GET" && req.url === "/models") {
+      return this.modelsStatus === 200 ? json(200, { data: MODELS, object: "list" }) : json(this.modelsStatus, { error: { message: "models down" } });
+    }
     if (req.method !== "POST" || req.url !== "/chat/completions") return json(404, { error: { message: "not found" } });
 
     let raw = "";
@@ -69,10 +82,23 @@ export class MockCopilot {
     if (!MODELS.some((m) => m.id === body.model)) {
       return json(400, { error: { message: "The requested model is not supported.", code: "model_not_supported" } });
     }
+    const o = this.override?.(body);
+    if (o) return json(o.status, o.body);
     const fails = this.failNext.get(body.model) ?? 0;
     if (fails > 0) {
       this.failNext.set(body.model, fails - 1);
       return json(500, { error: { message: "boom" } });
+    }
+    if (this.delayMs) await new Promise((r) => setTimeout(r, this.delayMs));
+    if (body.stream && this.rawStream) {
+      res.writeHead(200, { "content-type": "text/event-stream" });
+      for (const part of this.rawStream) {
+        if (part === "<destroy>") return void res.socket?.destroy();
+        const wait = /^<wait:(\d+)>$/.exec(part);
+        if (wait) await new Promise((r) => setTimeout(r, Number(wait[1])));
+        else res.write(part);
+      }
+      return void res.end();
     }
     if (body.messages.at(-1)?.role === "assistant" && !ACCEPTS_PREFILL.has(body.model)) {
       return json(400, { error: { message: PREFILL_ERROR, code: "invalid_request_body" } });

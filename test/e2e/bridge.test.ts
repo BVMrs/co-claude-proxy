@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { after, before, beforeEach, describe, it } from "node:test";
 
-import { assemble, events, logLines, post, startBridge, type Running } from "../helpers/bridge.ts";
+import { assemble, authHeaders, events, logLines, post, startBridge, type Running } from "../helpers/bridge.ts";
 import { MockCopilot, PREFILL_ERROR } from "../helpers/mock-copilot.ts";
 
 // Shape of `claude -p hello` from Claude Code 2.1.318, text shortened.
@@ -174,7 +174,7 @@ describe("bridge against a mock Copilot", () => {
   it("estimates tokens and lists models in Anthropic format", async () => {
     const t = await post(`${b.url}/v1/messages/count_tokens`, HELLO);
     assert.ok(t.json.input_tokens > 5);
-    const m = (await (await fetch(`${b.url}/v1/models`)).json()) as any;
+    const m = (await (await fetch(`${b.url}/v1/models`, { headers: authHeaders })).json()) as any;
     assert.ok(m.data.some((x: any) => x.id === "claude-opus-5.5" && x.type === "model"));
     assert.equal(m.has_more, false);
   });

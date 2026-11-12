@@ -1,5 +1,6 @@
 import type { CopilotAuth } from "../auth/copilot-token.ts";
 import { log } from "../log.ts";
+import { checkConfiguredUrl, isTrustedCopilotEndpoint } from "../security/upstream.ts";
 import type { CopilotModelsResponse } from "../types/copilot.ts";
 import type { ChatRequest } from "../types/openai.ts";
 import { copilotHeaders, type Initiator } from "./headers.ts";
@@ -18,13 +19,27 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export class CopilotClient {
   private readonly opts: Required<Omit<ClientOptions, "baseUrl">> & { baseUrl?: string };
+  private warnedEndpoint?: string;
 
   constructor(opts: ClientOptions) {
+    if (opts.baseUrl) checkConfiguredUrl(opts.baseUrl, "--copilot-base-url");
     this.opts = { maxRetries: 2, backoffMs: 500, ...opts };
   }
 
+  /**
+   * Where the Copilot token goes: --copilot-base-url, else the endpoint the
+   * token response announces if it's an https githubcopilot.com host, else
+   * the account type's default.
+   */
   baseUrl(): string {
-    return (this.opts.baseUrl ?? this.opts.auth.apiEndpoint() ?? this.opts.defaultBaseUrl).replace(/\/+$/, "");
+    if (this.opts.baseUrl) return this.opts.baseUrl.replace(/\/+$/, "");
+    const announced = this.opts.auth.apiEndpoint();
+    if (announced && isTrustedCopilotEndpoint(announced)) return announced.replace(/\/+$/, "");
+    if (announced && this.warnedEndpoint !== announced) {
+      this.warnedEndpoint = announced;
+      log.warn(`Ignoring the Copilot API endpoint ${announced} from the token response: not an https githubcopilot.com host`);
+    }
+    return this.opts.defaultBaseUrl.replace(/\/+$/, "");
   }
 
   async models(signal?: AbortSignal): Promise<CopilotModelsResponse> {
@@ -61,6 +76,8 @@ export class CopilotClient {
         headers: copilotHeaders(token, headerOpts),
         body: payload === undefined ? undefined : JSON.stringify(payload),
         signal,
+        // Never follow a redirect with the Copilot token attached.
+        redirect: "error",
       };
       let res: Response;
       try {

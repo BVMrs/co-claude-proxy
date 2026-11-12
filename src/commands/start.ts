@@ -14,7 +14,7 @@ export async function start(cfg: Config): Promise<() => Promise<void>> {
   const s = ctx.bridge.slots;
   log.info(`${ids.length} models available. Main: ${s.main}, helpers: ${s.small}. Prefill repair: ${cfg.prefill}`);
 
-  const server = createServer(ctx.bridge);
+  const server = createServer(ctx.bridge, { apiKey: ctx.apiKey, allowRemote: cfg.allowRemote });
   await new Promise<void>((resolve, reject) => {
     server.once("error", reject);
     server.listen(cfg.port, cfg.host, () => resolve());
@@ -23,7 +23,7 @@ export async function start(cfg: Config): Promise<() => Promise<void>> {
   log.info(`co-claude-bridge listening on ${color.cyan(`http://${cfg.host}:${port}`)}`);
   for (const c of envConflicts()) log.warn(c);
   process.stderr.write(
-    `\nIn another terminal, start Claude Code with:\n\n${formatEnv(claudeEnv(cfg, s, port), cfg.shell)}\nclaude\n\n`,
+    `\nIn another terminal, start Claude Code with:\n\n${formatEnv(claudeEnv(cfg, s, ctx.apiKey, port), cfg.shell)}\nclaude\n\n`,
   );
   log.info(color.dim("This uses unofficial Copilot endpoints; check GitHub's terms and your employer's policy."));
 

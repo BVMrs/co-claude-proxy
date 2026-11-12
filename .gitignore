@@ -3,3 +3,7 @@ dist/
 *.log
 .agent-work/
 __pycache__/
+.env
+.env.*
+*.tgz
+.npmrc.local

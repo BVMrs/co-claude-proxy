@@ -3,20 +3,21 @@ import http from "node:http";
 import { log } from "../log.ts";
 import { errorBody } from "../pipeline/errors.ts";
 import { HttpError, type Bridge, type Reply } from "./bridge.ts";
+import { checkRequest, type GuardOptions } from "./guard.ts";
 
 const MAX_BODY = 64 * 1024 * 1024; // screenshots in long sessions add up
 
-export function createServer(bridge: Bridge): http.Server {
+export function createServer(bridge: Bridge, guard: GuardOptions): http.Server {
   return http.createServer((req, res) => {
-    handle(bridge, req, res).catch((e: Error) => {
-      log.error(`unhandled error on ${req.method} ${req.url}: ${e.stack ?? e.message}`);
+    handle(bridge, guard, req, res).catch((e: Error) => {
+      log.error(`unhandled error on ${req.method} ${new URL(req.url ?? "/", "http://localhost").pathname}: ${e.stack ?? e.message}`);
       if (!res.headersSent) sendJson(res, 500, errorBody(500, `co-claude-bridge internal error: ${e.message}`));
       else res.end();
     });
   });
 }
 
-async function handle(bridge: Bridge, req: http.IncomingMessage, res: http.ServerResponse): Promise<void> {
+async function handle(bridge: Bridge, guard: GuardOptions, req: http.IncomingMessage, res: http.ServerResponse): Promise<void> {
   const url = new URL(req.url ?? "/", "http://localhost");
   const route = `${req.method} ${url.pathname.replace(/\/+$/, "") || "/"}`;
   const abort = new AbortController();
@@ -26,6 +27,7 @@ async function handle(bridge: Bridge, req: http.IncomingMessage, res: http.Serve
 
   let reply: Reply;
   try {
+    checkRequest(req, route, guard);
     switch (route) {
       case "GET /":
       case "HEAD /":
@@ -38,14 +40,14 @@ async function handle(bridge: Bridge, req: http.IncomingMessage, res: http.Serve
         reply = await bridge.listModels();
         break;
       case "POST /v1/messages":
-        reply = await bridge.messages(await readJson(req), abort.signal);
+        reply = await bridge.messages(await readJson(req, guard.maxBodyBytes), abort.signal);
         break;
       case "POST /v1/messages/count_tokens":
-        reply = await bridge.countTokens(await readJson(req));
+        reply = await bridge.countTokens(await readJson(req, guard.maxBodyBytes));
         break;
       case "POST /v1/chat/completions":
       case "POST /chat/completions":
-        reply = await bridge.chatPassthrough(await readJson(req), abort.signal);
+        reply = await bridge.chatPassthrough(await readJson(req, guard.maxBodyBytes), abort.signal);
         break;
       default:
         reply = { status: 404, json: errorBody(404, `co-claude-bridge has no route ${route}`) };
@@ -79,12 +81,12 @@ function sendJson(res: http.ServerResponse, status: number, body: unknown, heade
   res.end(text);
 }
 
-async function readJson(req: http.IncomingMessage): Promise<unknown> {
+async function readJson(req: http.IncomingMessage, max = MAX_BODY): Promise<unknown> {
   const chunks: Buffer[] = [];
   let size = 0;
   for await (const c of req) {
     size += (c as Buffer).length;
-    if (size > MAX_BODY) throw new HttpError(413, `Request body is over ${MAX_BODY / 1024 / 1024} MB.`);
+    if (size > max) throw new HttpError(413, `Request body is over ${Math.round(max / 1024 / 1024)} MB.`);
     chunks.push(c as Buffer);
   }
   const text = Buffer.concat(chunks).toString("utf8");

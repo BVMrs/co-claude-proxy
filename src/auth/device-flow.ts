@@ -1,4 +1,4 @@
-import { GITHUB_API_URL, GITHUB_BASE_URL, GITHUB_CLIENT_ID, GITHUB_SCOPES, githubHeaders } from "../copilot/headers.ts";
+import { GITHUB_CLIENT_ID, GITHUB_SCOPES, githubApiUrl, githubBaseUrl, githubHeaders } from "../copilot/headers.ts";
 
 export interface DeviceCode {
   device_code: string;
@@ -9,11 +9,12 @@ export interface DeviceCode {
 }
 
 const jsonHeaders = { accept: "application/json", "content-type": "application/json" };
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const realSleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export async function requestDeviceCode(): Promise<DeviceCode> {
-  const res = await fetch(`${GITHUB_BASE_URL}/login/device/code`, {
+  const res = await fetch(`${githubBaseUrl()}/login/device/code`, {
     method: "POST",
+    redirect: "error",
     headers: jsonHeaders,
     body: JSON.stringify({ client_id: GITHUB_CLIENT_ID, scope: GITHUB_SCOPES }),
   });
@@ -22,13 +23,14 @@ export async function requestDeviceCode(): Promise<DeviceCode> {
 }
 
 /** Poll until the user approves the device code. Follows RFC 8628 error codes. */
-export async function pollForAccessToken(code: DeviceCode): Promise<string> {
-  let interval = (code.interval || 5) * 1000;
-  const deadline = Date.now() + (code.expires_in || 900) * 1000;
+export async function pollForAccessToken(code: DeviceCode, sleep: (ms: number) => Promise<unknown> = realSleep): Promise<string> {
+  let interval = (code.interval ?? 5) * 1000;
+  const deadline = Date.now() + (code.expires_in ?? 900) * 1000;
   while (Date.now() < deadline) {
     await sleep(interval);
-    const res = await fetch(`${GITHUB_BASE_URL}/login/oauth/access_token`, {
+    const res = await fetch(`${githubBaseUrl()}/login/oauth/access_token`, {
       method: "POST",
+      redirect: "error",
       headers: jsonHeaders,
       body: JSON.stringify({
         client_id: GITHUB_CLIENT_ID,
@@ -57,7 +59,7 @@ export async function pollForAccessToken(code: DeviceCode): Promise<string> {
 }
 
 export async function getGithubLogin(githubToken: string): Promise<string | undefined> {
-  const res = await fetch(`${GITHUB_API_URL}/user`, { headers: githubHeaders(githubToken) });
+  const res = await fetch(`${githubApiUrl()}/user`, { headers: githubHeaders(githubToken), redirect: "error" });
   if (!res.ok) return undefined;
   return ((await res.json()) as { login?: string }).login;
 }
