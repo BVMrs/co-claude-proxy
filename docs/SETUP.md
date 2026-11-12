@@ -80,6 +80,24 @@ INFO /v1/messages model=claude-sonnet-5.5 last_role=assistant stream=True action
 
 Upstream errors (4xx/5xx) are logged with the first 500 bytes of the response body.
 
+**Prompt over Copilot's cap.** Copilot caps each model's prompt (`max_prompt_tokens`
+in `/models`) well below the window Claude Code assumes (about 1M for
+`claude-opus-5.5`), so Claude Code doesn't compact in time. Copilot then answers
+`400 prompt token count of N exceeds the limit of M`
+(`model_max_prompt_tokens_exceeded`). Claude Code doesn't recognise that text: the
+turn fails, and so does every later turn and `/compact`. The shim rewrites this
+one error into Anthropic's form, which makes Claude Code compact and retry:
+
+```json
+{"type": "error", "error": {"type": "invalid_request_error", "message": "prompt is too long: N tokens > M maximum"}}
+```
+
+If N and M can't be parsed, the message is `prompt is too long: <original text>`.
+The status stays 400, the original body is logged, and every other error passes
+through byte for byte. Setting `CLAUDE_CODE_AUTO_COMPACT_WINDOW=<max_prompt_tokens>`
+as well lets Claude Code compact before the cap, saving the rejected request, but it
+only works if copilot-api reports token usage back.
+
 **Trailing `role: "system"` messages.** Claude Code 2.1.x sends its environment
 block as a `role: "system"` entry at the end of `messages`. copilot-api translates
 every non-user message into an assistant turn
@@ -141,6 +159,7 @@ instead of the proxy.
 | `This model does not support assistant message prefill` on a plain "hello" | Shim older than the `system_folded` fix: update it. Claude Code ends the request with a `role: "system"` message, which copilot-api turns into an assistant turn. |
 | `This model does not support assistant message prefill` still appears | Claude Code isn't going through the shim (check `ANTHROPIC_BASE_URL` and `/status`). Or the model matches a `--prefill-ok` glob but rejects prefill: re-run the probe. |
 | `model_not_supported` | The ID isn't valid for this account. Use an ID from `probe --list`, or add `--map`. The shim log shows the exact ID Claude Code sent. |
+| `prompt token count of N exceeds the limit of M` and every later turn fails | Claude Code isn't going through the shim, or the shim predates the prompt-too-long rewrite. Through the shim this becomes `prompt is too long` and Claude Code compacts. |
 | `502 ... upstream unreachable` from the shim | copilot-api isn't running on `--upstream`. |
 | Requests go to Bedrock | `CLAUDE_CODE_USE_BEDROCK` is set in the environment or a settings file. |
 
