@@ -1,0 +1,78 @@
+[
+ {
+  "body": ".agent-work/attachments/read/last.json",
+  "main": {
+   "images_in_nonuser": 3,
+   "images_total": 3,
+   "pdf_b64_chars_lost": 1156,
+   "order_ok": true
+  },
+  "proto": {
+   "images_in_nonuser": 0,
+   "images_total": 3,
+   "pdf_b64_chars_lost": 1156,
+   "order_ok": true
+  },
+  "proto_stats": {
+   "images_hoisted": 3,
+   "documents_replaced": 1
+  }
+ },
+ {
+  "body": ".agent-work/attachments/mention/last.json",
+  "main": {
+   "images_in_nonuser": 0,
+   "images_total": 1,
+   "pdf_b64_chars_lost": 0,
+   "order_ok": true
+  },
+  "proto": {
+   "images_in_nonuser": 0,
+   "images_total": 1,
+   "pdf_b64_chars_lost": 0,
+   "order_ok": true
+  },
+  "proto_stats": {
+   "images_hoisted": 0,
+   "documents_replaced": 0
+  }
+ },
+ {
+  "body": ".agent-work/attachments/mcp.json",
+  "main": {
+   "images_in_nonuser": 3,
+   "images_total": 3,
+   "pdf_b64_chars_lost": 0,
+   "order_ok": true
+  },
+  "proto": {
+   "images_in_nonuser": 0,
+   "images_total": 3,
+   "pdf_b64_chars_lost": 0,
+   "order_ok": true
+  },
+  "proto_stats": {
+   "images_hoisted": 3,
+   "documents_replaced": 0
+  }
+ },
+ {
+  "body": ".agent-work/attachments/parallel.json",
+  "main": {
+   "images_in_nonuser": 2,
+   "images_total": 2,
+   "pdf_b64_chars_lost": 0,
+   "order_ok": true
+  },
+  "proto": {
+   "images_in_nonuser": 0,
+   "images_total": 2,
+   "pdf_b64_chars_lost": 0,
+   "order_ok": true
+  },
+  "proto_stats": {
+   "images_hoisted": 2,
+   "documents_replaced": 0
+  }
+ }
+]
